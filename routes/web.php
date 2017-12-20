@@ -12,5 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('main');
+    return view('app.home');
 });
+
+Route::get('/php', 'RouteController@php')->name('php');

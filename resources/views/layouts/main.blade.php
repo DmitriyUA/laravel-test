@@ -55,10 +55,10 @@
             <div class="row">
                 <div class="year date-box" id="year">
                 </div>
-                /
+
                 <div class="month date-box" id="month">
                 </div>
-                /
+
                 <div class="day date-box" id="day">
                 </div>
             </div>
@@ -67,10 +67,10 @@
             <div class="row">
                 <div class="hours date-box" id="hours">
                 </div>
-                :
+
                 <div class="minutes date-box" id="minutes">
                 </div>
-                :
+
                 <div class="seconds date-box" id="seconds">
                 </div>
             </div>

@@ -104,10 +104,21 @@ body, html
 
 .current-date
 {
-  height: 3rem;
+
 }
 
 .row-date
 {
   font-size: 2rem;
+  background-color: #008080;
+  padding: 5px 0;
+  color: #008B8B;
+  border-radius: 20px 10px 10px 20px;
+}
+.date-box
+{
+  padding: 2px 10px;
+  margin: 0 5px;
+  border-radius: 5px;
+  background-color: #E0FFFF;
 }

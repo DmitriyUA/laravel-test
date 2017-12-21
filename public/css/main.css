@@ -1,0 +1,103 @@
+/*!
+ * Start Bootstrap - 3 Col Portfolio (https://startbootstrap.com/template-overviews/3-col-portfolio)
+ * Copyright 2013-2017 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-3-col-portfolio/blob/master/LICENSE)
+ */
+body, html
+{
+  height: 100%;
+}
+
+.content
+{
+  background-color: #33CCCC;
+  margin: 1.5rem auto;
+  padding: 2.5rem;
+  border-radius: 100px 40px 100px 40px;
+  min-height: calc(100% - (244px + 3rem));
+}
+
+@media (min-width: 992px) {
+
+}
+
+.portfolio-item {
+  margin-bottom: 30px;
+}
+
+.pagination {
+  margin-bottom: 0;
+}
+
+.main-bg
+{
+  background-color: #5caceb !important;
+}
+
+.text-label
+{
+  color: #101010;
+  font-family: "Times New Roman";
+  font-size: 18px;
+}
+
+.input-field:focus
+{
+  border-color: #006363;
+  box-shadow: 0 0 0 .2rem #009999;
+}
+
+.btn-send
+{
+  cursor: pointer;
+}
+
+.sf-dump-note, .sf-dump-str, .sf-dump-index
+{
+  font: 12px Monaco, Consolas, monospace;
+}
+
+.sf-dump-note
+{
+  color: #a71d5d;
+}
+
+.sf-dump-str
+{
+  color: #df5000;
+}
+
+.sf-dump-index
+{
+  color: #a71d5d;
+}
+
+.conv-to-mass
+{
+  white-space: pre-wrap;
+  margin-bottom: 0;
+}
+
+.current-date
+{
+  position: relative;
+  top: 0.7rem;
+}
+.back-top
+{
+  position: fixed;
+  right: 40px;
+  bottom: 40px;
+  width: 50px;
+  height: 50px;
+  background-color: #015C65;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.fa-angle-up
+{
+  color: #ffffff;
+  position: absolute;
+  left: 20px;
+  top: 15px;
+}

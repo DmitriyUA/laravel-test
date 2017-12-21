@@ -12,8 +12,11 @@
 
     <!-- Bootstrap core CSS -->
     <link href="{{asset('/css/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{asset('/css/bootstrap/css/bootstrap-grid.min.css')}}" rel="stylesheet">
     <!-- Custom styles for this template -->
-    <link href="{{asset('/css/3-col-portfolio.css')}}" rel="stylesheet">
+    <link href="{{asset('/css/main.css')}}" rel="stylesheet">
+    <link href="{{asset('/fonts/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
+
 
 </head>
 
@@ -32,25 +35,46 @@
                     <a class="nav-link" href="{{route('php')}}">PHP</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">PHP&MySQL</a>
+                    <a class="nav-link" href="{{route('php_mysql')}}">PHP&MySQL</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">HTML&CSS</a>
+                    <a class="nav-link" href="{{route('html_css')}}">HTML&CSS</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">JavaScript(jQuery)&aJax</a>
+                    <a class="nav-link" href="{{route('javascript_ajax')}}">JavaScript(jQuery)&aJax</a>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
 
+
+<div class="container current-date">
+    <div class="row">
+        <div class="col-md-3 offset-md-1" id="date">
+        </div>
+        <div class="col-md-3 offset-md-4 d-flex flex-row-reverse" id="time">
+        </div>
+    </div>
+    <script type="text/javascript">
+        setInterval(function (){
+            var current_date = new Date();
+            var date = current_date.toDateString();
+            var time = current_date.toTimeString();
+            document.getElementById("date").innerHTML = date;
+            document.getElementById("time").innerHTML = time;
+        }, 1)
+
+    </script>
+</div>
 <!-- Page Content -->
 
     @yield('content')
 
 <!-- /.container -->
-
+<div class="back-top" id="back-top">
+    <i class="fa fa-angle-up" aria-hidden="true"></i>
+</div>
 <!-- Footer -->
 <footer class="py-5 main-bg">
     <div class="container">
@@ -62,6 +86,7 @@
 <!-- Bootstrap core JavaScript -->
 <script src="{{asset('/js/jquery/jquery.min.js')}}"></script>
 <script src="{{asset('/css/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{asset('/js/scroll-top.js')}}"></script>
 
 </body>
 

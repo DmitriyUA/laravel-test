@@ -101,3 +101,13 @@ body, html
   left: 20px;
   top: 15px;
 }
+
+.current-date
+{
+  height: 3rem;
+}
+
+.row-date
+{
+  font-size: 2rem;
+}

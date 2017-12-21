@@ -50,19 +50,51 @@
 
 
 <div class="container current-date">
-    <div class="row">
+    <div class="row  row-date">
         <div class="col-md-3 offset-md-1" id="date">
+            <div class="row">
+                <div class="year date-box" id="year">
+                </div>
+                /
+                <div class="month date-box" id="month">
+                </div>
+                /
+                <div class="day date-box" id="day">
+                </div>
+            </div>
         </div>
-        <div class="col-md-3 offset-md-4 d-flex flex-row-reverse" id="time">
+        <div class="col-md-3 offset-md-4" id="time">
+            <div class="row">
+                <div class="hours date-box" id="hours">
+                </div>
+                :
+                <div class="minutes date-box" id="minutes">
+                </div>
+                :
+                <div class="seconds date-box" id="seconds">
+                </div>
+            </div>
         </div>
     </div>
     <script type="text/javascript">
         setInterval(function (){
             var current_date = new Date();
-            var date = current_date.toDateString();
-            var time = current_date.toTimeString();
-            document.getElementById("date").innerHTML = date;
-            document.getElementById("time").innerHTML = time;
+            var year = current_date.getFullYear();
+            var month = current_date.getMonth();
+            var day = current_date.getDay();
+
+            var hours = current_date.getHours();
+            var minutes = current_date.getMinutes();
+            var seconds = current_date.getSeconds();
+
+
+            document.getElementById("year").innerHTML = year;
+            document.getElementById("month").innerHTML = month;
+            document.getElementById("day").innerHTML = day;
+
+            document.getElementById("hours").innerHTML = hours;
+            document.getElementById("minutes").innerHTML = minutes;
+            document.getElementById("seconds").innerHTML = seconds;
         }, 1)
 
     </script>

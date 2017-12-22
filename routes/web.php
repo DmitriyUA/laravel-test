@@ -20,4 +20,4 @@ Route::get('/php_and_mysql', 'RouteController@php_mysql')->name('php_mysql');
 Route::get('/html_and_css', 'RouteController@html_css')->name('html_css');
 Route::get('/javascript(jquery)_and_ajax', 'RouteController@javascript_ajax')->name('javascript_ajax');
 
-Route::post('/php', 'MassController@index')->name('mass_controller');
+Route::post('/php', 'ArrayController@index')->name('array_controller');

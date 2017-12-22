@@ -14,7 +14,7 @@ body, html
   margin: 1.5rem auto;
   padding: 2.5rem;
   border-radius: 100px 40px 100px 40px;
-  min-height: calc(100% - (244px + 3rem));
+  min-height: calc(100% - (306px + 3rem));
 }
 
 @media (min-width: 992px) {
@@ -37,7 +37,7 @@ body, html
 .text-label
 {
   color: #101010;
-  font-family: "Times New Roman";
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
   font-size: 18px;
 }
 
@@ -50,6 +50,16 @@ body, html
 .btn-send
 {
   cursor: pointer;
+}
+
+.alert
+{
+  border-radius: .55rem;
+}
+
+.entered-data span
+{
+  color: #df5000;
 }
 
 .sf-dump-note, .sf-dump-str, .sf-dump-index
@@ -132,4 +142,33 @@ body, html
   position: relative;
   top: -2px;
   color: #E0FFFF;
+}
+
+#slides {
+  position: relative;
+  height: 300px;
+  padding: 0px;
+  margin: 0px;
+  list-style-type: none;
+}
+
+.slide {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 1;
+  transition: opacity 1s;
+}
+
+.showing {
+  opacity: 1;
+  z-index: 2;
+}
+
+.slide-img
+{
+  border-radius: 20px;
 }

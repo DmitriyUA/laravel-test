@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Routing\UrlGenerator;
 
-class MassController extends Controller
+class ArrayController extends Controller
 {
     public function index(Request $request)
     {

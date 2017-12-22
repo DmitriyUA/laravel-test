@@ -159,6 +159,7 @@
 <script src="{{asset('/js/jquery/jquery.min.js')}}"></script>
 <script src="{{asset('/css/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{asset('/js/scroll-top.js')}}"></script>
+<script src="{{asset('/js/slide.js')}}"></script>
 
 </body>
 

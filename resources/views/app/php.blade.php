@@ -3,12 +3,12 @@
 @section('content')
     <div class="container content">
         <div class="row justify-content-center">
-            <div class="col-md-6">
+            <div class="col-md-10">
                 @if (!isset($input_string))
                     <form method="POST" action="/php">
                         {{csrf_field()}}
                         <div class="form-group">
-                            <label for="imass" class="text-label">Введите строку чисел и(или) букв через пробел, запятую или через точку </label>
+                            <label for="imass" class="text-label">Enter a string of numbers and (or) letters through the space, comma or point</label>
                             <input type="text" class="form-control input-field" name="imass" id="imass" required>
                         </div>
                         <button type="submit" class="btn btn-light btn-send">Submit</button>
@@ -18,7 +18,7 @@
                     <!-- Entered data -->
                     <h3 class="text-center">Entered data</h3>
                     <div class="entered-data alert alert-info">
-                        "{{$input_string}}"
+                        <span>" </span>{{$input_string}}<span> "</span>
                     </div>
 
                     <!-- Convertion to an array -->

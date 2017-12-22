@@ -20,8 +20,35 @@
                         <label for="imass" class="text-label">Age</label>
                         <input type="text" class="form-control input-field" name="age" required>
                     </div>
-                    <button type="submit" class="btn btn-light btn-send">Submit</button>
+                    <button type="submit" class="btn btn-light btn-send">Add user</button>
                 </form>
+                <hr>
+
+                <!-- Users -->
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Surname</th>
+                            <th scope="col">Age</th>
+                            <th scope="col">Date of register</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($users as $user)
+                            <tr>
+
+                                <th scope="row">{{$user->id}}</th>
+                                <td>{{$user->name}}</td>
+                                <td>{{$user->surname}}</td>
+                                <td>{{$user->age}}</td>
+                                <td>{{$user->created_at}}</td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+
             </div>
         </div>
     </div>

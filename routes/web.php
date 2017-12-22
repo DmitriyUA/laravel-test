@@ -21,3 +21,4 @@ Route::get('/html_and_css', 'RouteController@html_css')->name('html_css');
 Route::get('/javascript(jquery)_and_ajax', 'RouteController@javascript_ajax')->name('javascript_ajax');
 
 Route::post('/php', 'ArrayController@index')->name('array_controller');
+Route::post('/php_and_mysql', 'DatabaseController@index')->name('database_controller');

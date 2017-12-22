@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\User;
 class RouteController extends Controller
 {
     public function php()
@@ -13,7 +13,10 @@ class RouteController extends Controller
 
     public function php_mysql()
     {
-        return view('app.php_mysql');
+        $users = User::all();
+        return view('app.php_mysql', [
+            'users' => $users
+        ]);
     }
 
     public function html_css()

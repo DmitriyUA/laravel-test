@@ -56,19 +56,35 @@
                 <div class="year date-box" id="year">
                 </div>
 
+                <div class="date-delimitier">
+                    <span>/</span>
+                </div>
+
                 <div class="month date-box" id="month">
+                </div>
+
+                <div class="date-delimitier">
+                    <span>/</span>
                 </div>
 
                 <div class="day date-box" id="day">
                 </div>
             </div>
         </div>
-        <div class="col-md-3 offset-md-4" id="time">
+        <div class="col-md-3 offset-md-4 d-flex flex-row-reverse" id="time">
             <div class="row">
                 <div class="hours date-box" id="hours">
                 </div>
 
+                <div class="date-delimitier">
+                    <span>:</span>
+                </div>
+
                 <div class="minutes date-box" id="minutes">
+                </div>
+
+                <div class="date-delimitier">
+                    <span>:</span>
                 </div>
 
                 <div class="seconds date-box" id="seconds">
@@ -83,9 +99,33 @@
             var month = current_date.getMonth();
             var day = current_date.getDay();
 
+            if(month < 10)
+            {
+                month = '0' + month;
+            }
+
+            if(day < 10)
+            {
+                day = '0' + day;
+            }
+
             var hours = current_date.getHours();
             var minutes = current_date.getMinutes();
             var seconds = current_date.getSeconds();
+
+            if(hours < 10)
+            {
+                hours = '0' + hours;
+            }
+            if(minutes < 10)
+            {
+                minutes = '0' + minutes;
+            }
+
+            if(seconds < 10)
+            {
+                seconds = '0' + seconds;
+            }
 
 
             document.getElementById("year").innerHTML = year;

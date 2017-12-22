@@ -122,3 +122,14 @@ body, html
   border-radius: 5px;
   background-color: #E0FFFF;
 }
+
+.time-delimitier
+{
+}
+
+.date-delimitier span
+{
+  position: relative;
+  top: -2px;
+  color: #E0FFFF;
+}

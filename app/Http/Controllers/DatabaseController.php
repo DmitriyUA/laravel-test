@@ -16,6 +16,7 @@ class DatabaseController extends Controller
         ]);
 
         $users = User::all();
+
         return view('app.php_mysql', [
             'users' => $users
         ]);

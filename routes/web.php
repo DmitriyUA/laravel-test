@@ -22,3 +22,5 @@ Route::get('/javascript(jquery)_and_ajax', 'RouteController@javascript_ajax')->n
 
 Route::post('/php', 'ArrayController@index')->name('array_controller');
 Route::post('/php_and_mysql', 'DatabaseController@index')->name('database_controller');
+Route::delete('/php_and_mysql/delete', 'DatabaseController@delete_user')->name('php_mysql_delete');
+Route::delete('/php_and_mysql/truncate', 'DatabaseController@truncate')->name('truncate');

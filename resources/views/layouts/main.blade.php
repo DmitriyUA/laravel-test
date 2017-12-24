@@ -11,11 +11,12 @@
     <title>My modest skills</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="{{asset('/css/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
-    <link href="{{asset('/css/bootstrap/css/bootstrap-grid.min.css')}}" rel="stylesheet">
+    <link href="{{asset('/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{asset('/css/bootstrap-grid.min.css')}}" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="{{asset('/css/main.css')}}" rel="stylesheet">
     <link href="{{asset('/fonts/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
+
 
 
 </head>
@@ -157,9 +158,10 @@
 
 <!-- Bootstrap core JavaScript -->
 <script src="{{asset('/js/jquery/jquery.min.js')}}"></script>
-<script src="{{asset('/css/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{asset('/js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{asset('/js/scroll-top.js')}}"></script>
 <script src="{{asset('/js/slide.js')}}"></script>
+<script src="{{asset('js/bootstrap.min.js')}}"></script>
 
 </body>
 

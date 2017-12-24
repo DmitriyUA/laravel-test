@@ -172,3 +172,18 @@ body, html
 {
   border-radius: 20px;
 }
+
+.btn-round
+{
+  width: 24px;
+  height: 24px;
+  border-radius: 50% !important;
+  cursor: pointer;
+}
+
+.btn-round i
+{
+  position: relative;
+  bottom: 7px;
+  right: 6px;
+}

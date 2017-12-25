@@ -3,7 +3,7 @@
 @section('content')
     <div class="container content">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-8 eloquent-orm">
                 <form method="POST" action="/php_and_mysql">
                     {{csrf_field()}}
                     <div class="form-group">
@@ -45,7 +45,7 @@
                             <th scope="col">Surname</th>
                             <th scope="col">Age</th>
                             <th scope="col">Date of register</th>
-                            <th scope="col">Actions</th>
+                            <th scope="col" class = "actions">Actions</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -57,19 +57,33 @@
                                 <td>{{$user->age}}</td>
                                 <td>{{$user->created_at}}</td>
                                 <td class="actions">
-                                    <form action = "{{route('php_mysql_delete', ['id' => $user->id])}}" method = "post" class = "actions-post">
+                                    <form action = "{{route('delete_user', ['id' => $user->id])}}" method = "post" class = "actions-post">
                                         {{ csrf_field() }}
                                         {{method_field('DELETE')}}
 
                                         <button type="submit" class="btn btn-danger btn-xs btn-round">
-                                            <i class="fa fa-times" aria-hidden="true"></i>
+                                            <i class="fa fa-times fa-lg" aria-hidden="true"></i>
                                         </button>
                                     </form>
+
+
+                                    <span class="fa-stack fa-lg">
+                                        <a href = "{{route('edit_user', ['id' => $user->id])}}" class="edit-user">
+                                           <i class="fa fa-circle fa-stack-2x"></i>
+                                           <i class="fa fa-pencil-square-o fa-stack-1x edit-link"></i>
+                                        </a>
+                                    </span>
+
                                 </td>
                             </tr>
                         @endforeach
                         </tbody>
                     </table>
+                    <div class="container small-resolution-actions">
+                        <div class="alert alert-info">
+                            <h6>At this screen resolution <i>Actions</i> field isn`t available.</h6>
+                        </div>
+                    </div>
                     <form action = "{{route('truncate')}}" method = "post" class = "actions-post">
                         {{ csrf_field() }}
                         {{method_field('DELETE')}}
@@ -77,6 +91,11 @@
                         <button type="submit" class="btn btn-light btn-send">Truncate table</button>
                     </form>
                 @endif
+            </div>
+            <div class="container small-resolution">
+                <div class="alert alert-warning">
+                    <h6>At this screen resolution <i>Users</i> table isn`t available.</h6>
+                </div>
             </div>
         </div>
     </div>

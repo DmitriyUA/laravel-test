@@ -10,12 +10,14 @@
 
     <title>My modest skills</title>
 
+    <!-- Custom styles for this template -->
+    <link href="{{asset('/css/main.css')}}" rel="stylesheet">
+
+    <link href="{{asset('/fonts/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
     <!-- Bootstrap core CSS -->
     <link href="{{asset('/css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('/css/bootstrap-grid.min.css')}}" rel="stylesheet">
-    <!-- Custom styles for this template -->
-    <link href="{{asset('/css/main.css')}}" rel="stylesheet">
-    <link href="{{asset('/fonts/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
+    <link href="{{asset('/css/main-media.css')}}" rel="stylesheet">
 
 
 
@@ -52,7 +54,7 @@
 
 <div class="container current-date">
     <div class="row  row-date">
-        <div class="col-md-3 offset-md-1" id="date">
+        <div class="col-md-3 offset-md-1 d-flex date" id="date">
             <div class="row">
                 <div class="year date-box" id="year">
                 </div>
@@ -72,7 +74,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-3 offset-md-4 d-flex flex-row-reverse" id="time">
+        <div class="col-md-3 offset-md-4 d-flex flex-row-reverse time" id="time">
             <div class="row">
                 <div class="hours date-box" id="hours">
                 </div>
@@ -95,10 +97,11 @@
     </div>
     <script type="text/javascript">
         setInterval(function (){
+
             var current_date = new Date();
             var year = current_date.getFullYear();
-            var month = current_date.getMonth();
-            var day = current_date.getDay();
+            var month = (current_date.getMonth()+1);
+            var day = current_date.getDate();
 
             if(month < 10)
             {

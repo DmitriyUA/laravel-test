@@ -21,6 +21,9 @@ Route::get('/html_and_css', 'RouteController@html_css')->name('html_css');
 Route::get('/javascript(jquery)_and_ajax', 'RouteController@javascript_ajax')->name('javascript_ajax');
 
 Route::post('/php', 'ArrayController@index')->name('array_controller');
+
 Route::post('/php_and_mysql', 'DatabaseController@index')->name('database_controller');
-Route::delete('/php_and_mysql/delete', 'DatabaseController@delete_user')->name('php_mysql_delete');
+Route::delete('/php_and_mysql/delete', 'DatabaseController@delete_user')->name('delete_user');
 Route::delete('/php_and_mysql/truncate', 'DatabaseController@truncate')->name('truncate');
+Route::get('/php_and_mysql/edit/{id}', 'DatabaseController@edit_user')->name('edit_user');
+Route::put('/php_and_mysql/edit/{id}', 'DatabaseController@update_user')->name('update_user');

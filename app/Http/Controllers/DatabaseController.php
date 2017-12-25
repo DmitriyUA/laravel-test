@@ -35,4 +35,24 @@ class DatabaseController extends Controller
         DB::table('users')->truncate();
         return redirect()->back();
     }
+
+    public function edit_user()
+    {
+        $user = User::find(request()->id);
+        return view('app.edit_user', [
+            'user' => $user
+        ]);
+    }
+
+    public function update_user()
+    {
+        User::find(request()->id)->update(
+            [
+                'name' => request('name'),
+                'surname' => request('surname'),
+                'age' => request('age')
+            ]
+        );
+        return redirect()->route('php_mysql');
+    }
 }

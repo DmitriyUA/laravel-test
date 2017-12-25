@@ -112,11 +112,6 @@ body, html
   top: 15px;
 }
 
-.current-date
-{
-
-}
-
 .row-date
 {
   font-size: 2rem;
@@ -171,19 +166,46 @@ body, html
 .slide-img
 {
   border-radius: 20px;
+  width: 100%;
 }
 
 .btn-round
 {
-  width: 24px;
-  height: 24px;
+  width: 36px;
+  height: 36px;
   border-radius: 50% !important;
   cursor: pointer;
+  margin: 3px 0;
 }
 
 .btn-round i
 {
   position: relative;
-  bottom: 7px;
-  right: 6px;
+  bottom: 3px;
+  right: 4px;
+}
+
+.navbar-toggler:focus
+{
+  outline: none;
+}
+
+.actions-post {
+  float: left;
+  padding: 0 5px;
+}
+
+.edit-user .edit-link
+{
+  color: #fff;
+}
+
+.small-resolution
+{
+  display: none;
+}
+
+.small-resolution-actions
+{
+  display: none;
 }

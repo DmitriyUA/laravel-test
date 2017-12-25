@@ -3,7 +3,7 @@
 @section('content')
 <div class="container content">
     <div class="row">
-        <div class="container col-md-6">
+        <div class="container col-md-6 slider">
             <ul id="slides">
                 <li class="slide show"><img src = "{{asset("images/1.png")}}" class="slide-img"></li>
                 <li class="slide"><img src = "{{asset("images/2.png")}}" class="slide-img"></li>

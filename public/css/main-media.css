@@ -1,0 +1,71 @@
+@media screen and (max-width: 998px) and (min-width: 576px) {
+    .time
+    {
+        flex-direction: row !important;
+        margin-left: 10%;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .time, .date
+    {
+        min-width: 280px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .time
+    {
+        margin-left: 0;
+    }
+
+    .time .row, .date .row
+    {
+        margin: 5px auto;
+    }
+}
+
+@media screen and (max-width: 1200px) and (min-width: 992px) {
+    .time
+    {
+        margin-left: 25%;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .row-date
+    {
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 1200px) and (min-width: 768px) {
+    .slider
+    {
+        flex: none;
+        max-width: 515px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .actions
+    {
+        display: none;
+    }
+    .small-resolution-actions
+    {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .small-resolution
+    {
+        display: block;
+        padding: 0 25px;
+    }
+    .eloquent-orm
+    {
+        display: none;
+    }
+}

@@ -3,7 +3,7 @@
     <div class="container">
         <a class="navbar-brand" href="/"><img src="{{asset('images/brand.png')}}"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+            <i class="fa fa-bars" aria-hidden="true"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto main-menu">
@@ -11,13 +11,10 @@
                     <a class="nav-link" href="{{route('php')}}">PHP</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('php_mysql')}}">PHP&MySQL</a>
+                    <a class="nav-link" href="{{route('php_mysql')}}">MySQL</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('html_css')}}">HTML&CSS</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route('javascript_ajax')}}">JavaScript(jQuery)&aJax</a>
+                    <a class="nav-link" href="{{route('javascript_ajax')}}">aJax</a>
                 </li>
             </ul>
         </div>

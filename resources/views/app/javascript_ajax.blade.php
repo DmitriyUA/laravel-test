@@ -2,6 +2,10 @@
 
 @section('content')
     <div class="container content">
-        <h1>Congrats!!! This is JavaScript and ajax page</h1>
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                ajax
+            </div>
+        </div>
     </div>
 @endsection

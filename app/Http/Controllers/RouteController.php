@@ -19,11 +19,6 @@ class RouteController extends Controller
         ]);
     }
 
-    public function html_css()
-    {
-        return view('app.html_css');
-    }
-
     public function javascript_ajax()
     {
         return view('app.javascript_ajax');

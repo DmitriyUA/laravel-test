@@ -7,11 +7,14 @@
                 @if (!isset($input_string))
                     <form method="POST" action="/php">
                         {{csrf_field()}}
-                        <div class="form-group">
-                            <label for="imass" class="text-label">Enter a string of numbers and (or) letters through the space, comma or point</label>
+                        <div class="form-group form-group-php">
+                            <label for="imass" class="text-label text-label-php">
+                                <h3>Enter a string of numbers and (or) letters through the space, comma or point</h3>
+                            </label>
+                            <hr>
                             <input type="text" class="form-control input-field" name="imass" id="imass" required>
                         </div>
-                        <button type="submit" class="btn btn-light btn-send">Submit</button>
+                        <button type="submit" class="btn btn-light btn-send">Get result</button>
                     </form>
                 @endif
                 @if (isset($input_string))

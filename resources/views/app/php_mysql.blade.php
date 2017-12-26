@@ -4,6 +4,20 @@
     <div class="container content">
         <div class="row justify-content-center">
             <div class="col-md-8 eloquent-orm">
+                <h3><i>This is example of interaction with database via Eloquent ORM</i></h3>
+                <hr>
+                @if(Session::has('successful-update'))
+                    <div id="successful-update" class="alert alert-success">
+                        <h5 class="text-center">{{Session::get('successful-update')}}</h5>
+                    </div>
+                @endif
+
+                @if(Session::has('successful-delete'))
+                    <div id="successful-delete" class="alert alert-danger">
+                        <h5 class="text-center">{{Session::get('successful-delete')}}</h5>
+                    </div>
+                @endif
+
                 <form method="POST" action="/php_and_mysql">
                     {{csrf_field()}}
                     <div class="form-group">
@@ -34,6 +48,21 @@
                     </div>
                 @endif
 
+                <script>
+                    if($('div').is('#successful-update'))
+                    {
+                        $('#successful-update').fadeOut(2000, function () {
+                            
+                        });
+                    }
+
+                    if($('div').is('#successful-delete'))
+                    {
+                        $('#successful-delete').fadeOut(2000, function () {
+
+                        });
+                    }
+                </script>
                 <!-- Users -->
                 @if($users->count() > 0)
                     <hr>
@@ -57,15 +86,10 @@
                                 <td>{{$user->age}}</td>
                                 <td>{{$user->created_at}}</td>
                                 <td class="actions">
-                                    <form action = "{{route('delete_user', ['id' => $user->id])}}" method = "post" class = "actions-post">
-                                        {{ csrf_field() }}
-                                        {{method_field('DELETE')}}
 
-                                        <button type="submit" class="btn btn-danger btn-xs btn-round">
-                                            <i class="fa fa-times fa-lg" aria-hidden="true"></i>
-                                        </button>
-                                    </form>
-
+                                    <button type="button" class="btn btn-danger btn-xs btn-round" data-toggle="modal" data-target="#confirm-deletion-record">
+                                        <i class="fa fa-times fa-lg" aria-hidden="true"></i>
+                                    </button>
 
                                     <span class="fa-stack fa-lg">
                                         <a href = "{{route('edit_user', ['id' => $user->id])}}" class="edit-user">
@@ -84,12 +108,54 @@
                             <h6>At this screen resolution <i>Actions</i> field isn`t available.</h6>
                         </div>
                     </div>
-                    <form action = "{{route('truncate')}}" method = "post" class = "actions-post">
-                        {{ csrf_field() }}
-                        {{method_field('DELETE')}}
 
-                        <button type="submit" class="btn btn-light btn-send">Truncate table</button>
-                    </form>
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#confirm-truncate">Truncate table</button>
+
+                    <!--Modal window for confirmation of truncate table -->
+                    <div class="modal fade" id="confirm-truncate" tabindex="-1" role="dialog" aria-labelledby="confirm-truncate-Label" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <h4 class="text-center">This action will delete all records from table and reset the auto-incrementing ID to zero.
+                                        Do you want to continue anyway?
+                                    </h4>
+                                </div>
+                                <div class="modal-footer confirm-deletetion">
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                                    <form action = "{{route('truncate')}}" method = "post" class = "actions-post">
+                                        {{ csrf_field() }}
+                                        {{method_field('DELETE')}}
+
+                                        <button type="submit" class="btn btn-light btn-outline-danger">Truncate table</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Modal window for confirmation of removal record from table -->
+                    <div class="modal fade" id="confirm-deletion-record" tabindex="-1" role="dialog" aria-labelledby="confirm-deletion-record-Label" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <h3 class="text-center">Are you sure?</h3>
+                                </div>
+                                <div class="modal-footer confirm-deletetion">
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                                    <form action = "{{route('delete_user', ['id' => $user->id])}}" method = "post" class = "actions-post">
+                                        {{ csrf_field() }}
+                                        {{method_field('DELETE')}}
+
+                                        <button type="submit" class="btn btn-danger btn-xs">
+                                            <span>
+                                                <b>Delete record</b>
+                                            </span>
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 @endif
             </div>
             <div class="container small-resolution">

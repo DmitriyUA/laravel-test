@@ -4,6 +4,7 @@
     <div class="container content">
         <div class="row justify-content-center">
             <div class="col-md-8">
+
                 <form method="POST" action="{{route('update_user', ['id' => $user->id])}}">
                     {{csrf_field()}}
                     {{ method_field('PUT') }}
@@ -21,7 +22,7 @@
                         <label for="imass" class="text-label">Age</label>
                         <input type="text" class="form-control input-field" name="age" value="{{$user->age}}">
                     </div>
-                    <button type="submit" class="btn btn-light btn-send">Update</button>
+                    <button type="submit" class="btn btn-light btn-send">Update record</button>
                 </form>
             </div>
         </div>

@@ -11,7 +11,7 @@ body, html
 .content
 {
   background-color: #33CCCC;
-  margin: 1.5rem auto;
+  margin: 1rem auto;
   padding: 2.5rem;
   border-radius: 100px 40px 100px 40px;
   min-height: calc(100% - (306px + 3rem));
@@ -47,7 +47,7 @@ body, html
   box-shadow: 0 0 0 .2rem #009999;
 }
 
-.btn-send
+.btn
 {
   cursor: pointer;
 }
@@ -90,8 +90,7 @@ body, html
 
 .current-date
 {
-  position: relative;
-  top: 0.7rem;
+  margin-top: 1rem;
 }
 .back-top
 {
@@ -208,4 +207,38 @@ body, html
 .small-resolution-actions
 {
   display: none;
+}
+
+.confirm-deletetion
+{
+  margin: 0 auto;
+}
+
+.btn-success {
+  background-color: #008B8B !important;
+  border-color: #008B8B !important;
+}
+
+.main-menu
+{
+  font-size: 1.3rem;
+  font-weight: 900;
+
+}
+
+.main-menu li a:hover
+{
+  position: relative;
+  top: -5px;
+  text-shadow: 3px -3px 4px black;
+  color: #ffffff !important;
+  -webkit-transition-duration: .5s;
+  -o-transition-duration: .5s;
+  -moz-transition-duration: .5s;
+  transition-duration: .5s;
+}
+
+.main-menu li a
+{
+
 }

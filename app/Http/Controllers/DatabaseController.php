@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Requests\ValidateUsers;
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\Session;
 
 
 class DatabaseController extends Controller
@@ -26,7 +27,10 @@ class DatabaseController extends Controller
     }
     public function delete_user(Request $request)
     {
-        User::find($request->id)->delete();
+        $user = User::find($request->id);
+        $name = $user->name;
+        $user->delete();
+        \Session::flash('successful-delete', 'User ' . $name . ' has been deleted successful!');
         return redirect()->back();
     }
 
@@ -53,6 +57,8 @@ class DatabaseController extends Controller
                 'age' => request('age')
             ]
         );
+        \Session::flash('successful-update', 'User ' . request()->name . ' has been updated successful!');
         return redirect()->route('php_mysql');
+
     }
 }

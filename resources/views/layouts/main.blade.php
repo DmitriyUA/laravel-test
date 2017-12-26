@@ -18,6 +18,8 @@
     <link href="{{asset('/css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('/css/bootstrap-grid.min.css')}}" rel="stylesheet">
     <link href="{{asset('/css/main-media.css')}}" rel="stylesheet">
+    <script src="{{asset('/js/jquery/jquery.min.js')}}"></script>
+    <script src="{{asset('/js/bootstrap.bundle.min.js')}}"></script>
 
 
 
@@ -25,32 +27,7 @@
 
 <body>
 
-<!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark main-bg navbar-static-top">
-    <div class="container">
-        <a class="navbar-brand" href="/"><img src="{{asset('images/brand.png')}}"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="{{route('php')}}">PHP</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route('php_mysql')}}">PHP&MySQL</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route('html_css')}}">HTML&CSS</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route('javascript_ajax')}}">JavaScript(jQuery)&aJax</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
+@include('layouts.main-parts.nav')
 
 <div class="container current-date">
     <div class="row  row-date">
@@ -160,11 +137,11 @@
 </footer>
 
 <!-- Bootstrap core JavaScript -->
-<script src="{{asset('/js/jquery/jquery.min.js')}}"></script>
-<script src="{{asset('/js/bootstrap.bundle.min.js')}}"></script>
+
 <script src="{{asset('/js/scroll-top.js')}}"></script>
 <script src="{{asset('/js/slide.js')}}"></script>
 <script src="{{asset('js/bootstrap.min.js')}}"></script>
+<script src="{{asset('js/header.js')}}"></script>
 
 </body>
 

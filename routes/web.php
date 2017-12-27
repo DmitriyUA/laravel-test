@@ -26,3 +26,6 @@ Route::delete('/php_and_mysql/delete', 'DatabaseController@delete_user')->name('
 Route::delete('/php_and_mysql/truncate', 'DatabaseController@truncate')->name('truncate');
 Route::get('/php_and_mysql/edit/{id}', 'DatabaseController@edit_user')->name('edit_user');
 Route::put('/php_and_mysql/edit/{id}', 'DatabaseController@update_user')->name('update_user');
+
+Route::post('load_data', 'AjaxController@load_data');
+Route::post('create_ajax', 'AjaxController@create_ajax');

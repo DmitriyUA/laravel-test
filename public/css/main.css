@@ -247,7 +247,8 @@ text-label-php
   transition-duration: .5s;
 }
 
-.main-menu li a
+.ajax-container .disabled:focus
 {
-
+  box-shadow: none;
+  cursor: default;
 }

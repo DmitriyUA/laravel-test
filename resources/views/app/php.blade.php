@@ -9,7 +9,7 @@
                         {{csrf_field()}}
                         <div class="form-group form-group-php">
                             <label for="imass" class="text-label text-label-php">
-                                <h3>Enter a string of numbers and (or) letters through the space, comma or point</h3>
+                                <h3><i>Enter a string of numbers and (or) letters through the space, comma or point</i></h3>
                             </label>
                             <hr>
                             <input type="text" class="form-control input-field" name="imass" id="imass" required>

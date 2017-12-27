@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    <meta name="csrf-token" content="{{csrf_token()}}">
+
 
     <title>My modest skills</title>
 
@@ -20,7 +22,6 @@
     <link href="{{asset('/css/main-media.css')}}" rel="stylesheet">
     <script src="{{asset('/js/jquery/jquery.min.js')}}"></script>
     <script src="{{asset('/js/bootstrap.bundle.min.js')}}"></script>
-
 
 
 </head>
@@ -54,6 +55,8 @@
 <script src="{{asset('js/bootstrap.min.js')}}"></script>
 <script src="{{asset('js/header.js')}}"></script>
 <script src="{{asset('js/clock.js')}}"></script>
+<script src="{{asset('js/ajax/load_data.js')}}"></script>
+
 
 </body>
 

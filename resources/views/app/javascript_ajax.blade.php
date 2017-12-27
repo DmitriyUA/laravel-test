@@ -27,6 +27,7 @@
                 <hr>
                 <div id="ajax-data" class="col-md-10">
                     <form>
+                        {{csrf_field()}}
                         <div class="form-group">
                             <label for="imass" class="text-label">Name</label>
                             <input type="text" class="form-control input-field" name="name" required>

@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-    var click = true;
+    var click = 0;
 
     $('#load-data').click(function(){
         $.ajaxSetup({
@@ -19,8 +19,7 @@ $(document).ready(function() {
             url: '/load_data',
             data: {'query_to_db': 'SELECT * FROM users'},
             success: function (data) {
-                if (click)
-                {
+                $('#ajax-data table tbody').empty();
                     for (var i = 0; i < data.users.length; i++) {
                         $('#ajax-data table tbody').append(
                             "<tr>\n" +
@@ -32,51 +31,10 @@ $(document).ready(function() {
                             "</tr>"
                         );
                     }
-                }
-
-                click = false;
             },
             error: function () {
                 alert('error');
             }
         });
-        $('#load-data').addClass('d-none');
     });
-
-
-    $.ajaxSetup({
-
-        headers: {
-
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-
-        }
-
-    });
-    //Add user
-    $('#add-user').click(function (e) {
-        e.preventDefault();
-
-        var name = $("input[name=name]").val();
-        var surname = $("input[name=surname]").val();
-        var age = $("input[name=age]").val();
-        console.log(name);
-        console.log(surname);
-        console.log(age);
-
-        $.ajax({
-            type: 'POST',
-            dataType: 'json',
-            url: '/create_ajax',
-            data: {'name':name, 'surname':surname, 'age':age},
-            success: function (data) {
-                alert(data.msg);
-                console.log(data.input);
-            },
-            error: function () {
-                alert('error');
-            }
-        });
-        }
-    );
 });

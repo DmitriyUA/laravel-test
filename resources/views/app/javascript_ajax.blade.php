@@ -23,7 +23,7 @@
                 </div>
                 <button id="load-data" class="btn btn-primary">Get data</button>
 
-                <h3 class="text-center"><i>Send data to database via ajax query</i></h3>
+                <h3 class="text-center"><i>Data storage to database via ajax query</i></h3>
                 <hr>
                 <div id="ajax-data" class="col-md-10">
                     <form>

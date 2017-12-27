@@ -56,6 +56,7 @@
 <script src="{{asset('js/header.js')}}"></script>
 <script src="{{asset('js/clock.js')}}"></script>
 <script src="{{asset('js/ajax/load_data.js')}}"></script>
+<script src="{{asset('js/ajax/data_storage.js')}}"></script>
 
 
 </body>

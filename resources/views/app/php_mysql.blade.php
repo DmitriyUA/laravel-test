@@ -51,14 +51,15 @@
                 <script>
                     if($('div').is('#successful-update'))
                     {
-                        $('#successful-update').fadeOut(2000, function () {
-                            
-                        });
+                        $('#successful-update').slideUp(2000, function () {
+
+                            }
+                        );
                     }
 
                     if($('div').is('#successful-delete'))
                     {
-                        $('#successful-delete').fadeOut(2000, function () {
+                        $('#successful-delete').slideUp(2000, function () {
 
                         });
                     }

@@ -58,14 +58,9 @@
                     if($('div').is('#successful-update'))
                     {
                         $('#successful-update').slideUp(2000, function () {
-<<<<<<< HEAD
 
-                            }
-                        );
-=======
-                            
-                        });
->>>>>>> 8eb77eec71331ab8de3ff4c9b668ec926b3672cb
+                            });
+
                     }
 
                     if($('div').is('#successful-delete'))

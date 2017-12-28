@@ -2,31 +2,44 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\ValidateUsers;
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Pagination\Paginator;
 
 
 class DatabaseController extends Controller
 {
+
+    public function load_init_data()
+    {
+        Artisan::call('db:seed');
+        return redirect()->back();
+    }
+
     public function index(ValidateUsers $request)
     {
-        User::create([
-            'name' => request('name'),
-            'surname' => request('surname'),
-            'age' => request('age')
-        ]);
+        if (request()->has(['name', 'surname', 'age'])) {
+            User::create([
+                'name' => request('name'),
+                'surname' => request('surname'),
+                'age' => request('age')
+            ]);
+        }
 
-        $users = User::all();
-
+        $users = User::paginate(10);
         return view('app.php_mysql', [
             'users' => $users
         ]);
     }
+
+
     public function delete_user(Request $request)
     {
+        //dd(request()->all());
         $user = User::find($request->id);
         $name = $user->name;
         $user->delete();
@@ -37,7 +50,7 @@ class DatabaseController extends Controller
     public function truncate()
     {
         DB::table('users')->truncate();
-        return redirect()->back();
+        return redirect('/php_and_mysql');
     }
 
     public function edit_user()
@@ -58,7 +71,7 @@ class DatabaseController extends Controller
             ]
         );
         \Session::flash('successful-update', 'User ' . request()->name . ' has been updated successful!');
-        return redirect()->route('php_mysql');
+        return redirect()->back();
 
     }
 }

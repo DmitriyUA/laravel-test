@@ -16,10 +16,15 @@
     <link href="{{asset('/css/main.css')}}" rel="stylesheet">
 
     <link href="{{asset('/fonts/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
+
     <!-- Bootstrap core CSS -->
     <link href="{{asset('/css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('/css/bootstrap-grid.min.css')}}" rel="stylesheet">
+
+    <!-- Media queries -->
     <link href="{{asset('/css/main-media.css')}}" rel="stylesheet">
+
+    <!-- Jquery core -->
     <script src="{{asset('/js/jquery/jquery.min.js')}}"></script>
     <script src="{{asset('/js/bootstrap.bundle.min.js')}}"></script>
 
@@ -56,6 +61,7 @@
 <script src="{{asset('js/header.js')}}"></script>
 <script src="{{asset('js/clock.js')}}"></script>
 <script src="{{asset('js/ajax/load_data.js')}}"></script>
+<script src="{{asset('js/ajax/confirm_delete.js')}}"></script>
 
 
 </body>

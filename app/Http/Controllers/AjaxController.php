@@ -19,6 +19,11 @@ class AjaxController extends Controller
 
     public function create_ajax()
     {
+        User::create([
+            'name' => request('name'),
+            'surname' => request('surname'),
+            'age' => request('age')
+        ]);
         return response()->json(['msg' => 'test'], 200);
     }
 }

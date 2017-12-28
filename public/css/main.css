@@ -252,3 +252,30 @@ text-label-php
   box-shadow: none;
   cursor: default;
 }
+
+.page-item .page-link
+{
+  color: #015C65;
+}
+
+.page-item.active .page-link
+{
+  background-color: #015C65 !important;
+  border-color: #015C65 !important;
+}
+.php_mysql_navigation
+{
+  margin-bottom: 20px;
+}
+
+input.btn-warning
+{
+  background-color: #ffc107 !important;
+  border-color: #ffc107 !important;
+  float: right;
+}
+
+form
+{
+  margin: 10px 0;
+}

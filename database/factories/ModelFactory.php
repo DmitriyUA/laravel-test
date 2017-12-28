@@ -13,12 +13,53 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(App\User::class, function (Faker\Generator $faker) {
-    static $password;
 
+    $name = array(
+        'Ivan',
+        'Peter',
+        'John',
+        'Sem',
+        'David',
+        'Tom',
+        'Max',
+        'Alex',
+        'Andrey',
+        'Alice',
+        'Veronica',
+        'Gloria',
+        'Diana',
+        'Eva',
+        'Kira',
+        'Kristina',
+        'Leila',
+        'Nika',
+        'Rita',
+    );
+
+    $surname = array(
+        'Dorris',
+        'Imber',
+        'Larbo',
+        'Lerua',
+        'Lorenco',
+        'Mayer',
+        'Mandino',
+        'Miller',
+        'Montarelli',
+        'Nilsen',
+        'Norton',
+        'Ormando',
+        'Perro',
+        'Rait',
+        'Robbins',
+        'Tomson',
+        'Torelli',
+        'Whyte',
+        'Flinn',
+    );
     return [
-        'name' => $faker->name,
-        'email' => $faker->unique()->safeEmail,
-        'password' => $password ?: $password = bcrypt('secret'),
-        'remember_token' => str_random(10),
+        'name' => $name[rand(0, sizeof($name)-1)],
+        'surname' => $surname[rand(0, sizeof($surname)-1)],
+        'age' => rand(18, 99),
     ];
 });

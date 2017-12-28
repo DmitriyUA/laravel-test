@@ -13,7 +13,7 @@ class RouteController extends Controller
 
     public function php_mysql()
     {
-        $users = User::all();
+        $users = User::paginate(10);
         return view('app.php_mysql', [
             'users' => $users
         ]);

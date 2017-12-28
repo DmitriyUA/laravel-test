@@ -24,6 +24,10 @@ class AjaxController extends Controller
             'surname' => request('surname'),
             'age' => request('age')
         ]);
+<<<<<<< HEAD
         return response()->json(['msg' => 'User has been created successful'], 200);
+=======
+        return response()->json(['msg' => 'test'], 200);
+>>>>>>> 8eb77eec71331ab8de3ff4c9b668ec926b3672cb
     }
 }

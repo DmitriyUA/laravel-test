@@ -29,3 +29,5 @@ Route::put('/php_and_mysql/edit/{id}', 'DatabaseController@update_user')->name('
 
 Route::post('load_data', 'AjaxController@load_data');
 Route::post('create_ajax', 'AjaxController@create_ajax');
+
+Route::get('/load_init_data', 'DatabaseController@load_init_data');

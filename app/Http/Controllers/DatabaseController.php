@@ -13,14 +13,6 @@ use Illuminate\Pagination\Paginator;
 
 class DatabaseController extends Controller
 {
-
-    public function load_init_data()
-    {
-        Artisan::call('db:seed');
-        \Session::put(['loaded', 1]);
-        return redirect()->back();
-    }
-
     public function index(ValidateUsers $request)
     {
         if (request()->has(['name', 'surname', 'age'])) {
@@ -29,6 +21,7 @@ class DatabaseController extends Controller
                 'surname' => request('surname'),
                 'age' => request('age')
             ]);
+            \Session::flash('successful-addition', 'User "' . request('name') . '" has been added successful!');
         }
 
         $users = User::paginate(10);
@@ -37,6 +30,12 @@ class DatabaseController extends Controller
         ]);
     }
 
+    public function load_init_data()
+    {
+        Artisan::call('db:seed');
+        \Session::put('loaded', 1);
+        return redirect()->back();
+    }
 
     public function delete_user(Request $request)
     {
@@ -44,7 +43,7 @@ class DatabaseController extends Controller
         {
          User::destroy(request()->group_delete);
          \Session::flash('successful-delete-group', 'Users group has been deleted successful!');
-         return redirect()->back();
+         return redirect('/php_and_mysql');
         }
         else
         {
@@ -53,7 +52,7 @@ class DatabaseController extends Controller
             $user = User::find($request->id);
             $name = $user->name;
             $user->delete();
-            \Session::flash('successful-delete', 'User ' . $name . ' has been deleted successful!');
+            \Session::flash('successful-delete', 'User "' . $name . '" has been deleted successful!');
             return redirect('/php_and_mysql');
             }
         }
@@ -62,6 +61,8 @@ class DatabaseController extends Controller
     public function truncate()
     {
         DB::table('users')->truncate();
+        \Session::forget('loaded');
+        \Session::flash('successful-truncate', 'All records have been successfully deleted!');
         return redirect('/php_and_mysql');
     }
 
@@ -82,7 +83,7 @@ class DatabaseController extends Controller
                 'age' => request('age')
             ]
         );
-        \Session::flash('successful-update', 'User ' . request()->name . ' has been updated successful!');
+        \Session::flash('successful-update', 'User "' . request()->name . '" has been updated successful!');
         return redirect('/php_and_mysql');
 
     }

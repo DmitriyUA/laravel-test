@@ -6,19 +6,54 @@
             <div class="col-md-8 eloquent-orm">
                 <h3><i>This is example of interaction with database via Eloquent ORM</i></h3>
                 <hr>
+
+                <!--Successful User update-->
                 @if(Session::has('successful-update'))
                     <div id="successful-update" class="alert alert-success">
                         <h5 class="text-center">{{Session::get('successful-update')}}</h5>
                     </div>
                 @endif
 
+                <!--Successful User delete-->
                 @if(Session::has('successful-delete'))
                     <div id="successful-delete" class="alert alert-danger">
                         <h5 class="text-center">{{Session::get('successful-delete')}}</h5>
                     </div>
                 @endif
 
-                <!--Errors-->
+                <!--Successful User addition-->
+                @if(Session::has('successful-addition'))
+                    <div id="successful-addition" class="alert alert-success">
+                        <h5 class="text-center">{{Session::get('successful-addition')}}</h5>
+                    </div>
+                @endif
+
+                <!--Successful clearing a table-->
+                @if(Session::has('successful-truncate'))
+                    <div id="successful-truncate" class="alert alert-danger">
+                        <h5 class="text-center">{{Session::get('successful-truncate')}}</h5>
+                    </div>
+                @endif
+
+            <!--Hide button "load" if it`s has been pressed-->
+                @if(!Session::has('loaded'))
+                        <h5 class="info-text">
+                                You can add records to database manually using the form below or load testing data
+                            by clicking button "Load"! Test data is loaded via Seed class. The table fields such as
+                            "Name", "Surname" are filled with data from the corresponding arrays in random order.
+                            Field "Age" - integer random number in the range 18 and 99.
+                        </h5>
+
+                    <!--Form for loading test data-->
+                    </br>
+                    <form method="GET" action="/load_init_data">
+                        {{csrf_field()}}
+                        <button type="submit" class="btn btn-warning btn-lg btn-block">Load</button>
+                    </form>
+                    </br>
+                @endif
+
+            <!--Errors-->
                 @if ($errors->any())
                     <div class="alert alert-danger">
                         <ul>
@@ -28,23 +63,6 @@
                         </ul>
                     </div>
                 @endif
-
-
-                <p>
-                <h5>
-                    You can add records to database manually using the form below or load testing data
-                    by clicking button "Load"!
-                </h5>
-                </p>
-
-                <!--Form for loading test data-->
-                @if(Session::has('loaded'))
-                    <form method="GET" action="/load_init_data">
-                        {{csrf_field()}}
-                        <button type="submit" class="btn btn-warning btn-lg btn-block">Load</button>
-                    </form>
-                @endif
-                </br>
 
                 <!--Form for adding new user to database-->
                 <form method="POST" action="/php_and_mysql">
@@ -69,15 +87,25 @@
                 <script>
                     if($('div').is('#successful-update'))
                     {
-                        $('#successful-update').slideUp(2000, function () {
+                        $('#successful-update').slideUp(3000, function () {
                             
                         });
-
-
                     }
                     if($('div').is('#successful-delete'))
                     {
-                        $('#successful-delete').slideUp(2000, function () {
+                        $('#successful-delete').slideUp(3000, function () {
+
+                        });
+                    }
+                    if($('div').is('#successful-addition'))
+                    {
+                        $('#successful-addition').slideUp(3000, function () {
+
+                        });
+                    }
+                    if($('div').is('#successful-truncate'))
+                    {
+                        $('#successful-truncate').slideUp(3000, function () {
 
                         });
                     }

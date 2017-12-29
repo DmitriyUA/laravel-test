@@ -363,3 +363,8 @@ form
 {
   display: none !important;
 }
+
+.info-text
+{
+  line-height: 1.5;
+}

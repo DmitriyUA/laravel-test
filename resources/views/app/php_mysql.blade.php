@@ -29,6 +29,21 @@
                     </div>
                 @endif
 
+
+                <p>
+                <h5>
+                    You can add records to database manually using the form below or load testing data
+                    by clicking button "Load"!
+                </h5>
+                </p>
+
+                <!--Form for loading test data-->
+                <form method="GET" action="/load_init_data">
+                    {{csrf_field()}}
+                    <button type="submit" class="btn btn-warning btn-lg btn-block">Load</button>
+                </form>
+                </br>
+
                 <!--Form for adding new user to database-->
                 <form method="POST" action="/php_and_mysql">
                     {{csrf_field()}}
@@ -48,11 +63,6 @@
                     </div>
                     <button type="submit" class="btn btn-light btn-send">Add User</button>
                 </form>
-                <form method="GET" action="/load_init_data">
-                    {{csrf_field()}}
-                    <button type="submit" class="btn btn-warning">Load</button>
-                </form>
-                </br>
 
                 <script>
                     if($('div').is('#successful-update'))
@@ -73,6 +83,9 @@
                 <!-- Users -->
                 @if($users->count() > 0)
                     <hr>
+                    <form action = "{{route('delete_user')}}" method = "post">
+                        {{ csrf_field() }}
+                        {{method_field('DELETE')}}
                     <table class="table table-striped">
                         <thead>
                         <tr>
@@ -85,6 +98,7 @@
                         </tr>
                         </thead>
                         <tbody>
+
                         @foreach($users as $user)
                             <tr>
                                 <th scope="row">{{$user->id}}</th>
@@ -93,6 +107,9 @@
                                 <td>{{$user->age}}</td>
                                 <td>{{$user->created_at}}</td>
                                 <td class="actions">
+
+                                    <input type="checkbox" id="test-{{$user->id}}" name="group_delete[]" value="{{$user->id}}" class="delete-group"/>
+                                    <label for="test-{{$user->id}}"></label>
 
                                     <button name="first_id" value="{{$user->id}}" type="button" class="btn btn-danger btn-xs btn-round delete" data-toggle="modal" data-target="#confirm-deletion-record">
                                         <i class="fa fa-times fa-lg" aria-hidden="true"></i>
@@ -110,6 +127,9 @@
                         @endforeach
                         </tbody>
                     </table>
+                    <button type="submit" id="delete" class="btn btn-danger">Delete</button>
+                    <button type="button" id="select-all" class="btn btn-default">Select All</button>
+                    </form>
 
                     <!--Modal window for confirmation of removal record from table -->
                     <div class="modal fade" id="confirm-deletion-record" tabindex="-1" role="dialog" aria-labelledby="confirm-deletion-record-Label" aria-hidden="true">

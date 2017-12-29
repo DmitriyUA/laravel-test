@@ -39,12 +39,23 @@ class DatabaseController extends Controller
 
     public function delete_user(Request $request)
     {
-        //dd(request()->all());
-        $user = User::find($request->id);
-        $name = $user->name;
-        $user->delete();
-        \Session::flash('successful-delete', 'User ' . $name . ' has been deleted successful!');
-        return redirect()->back();
+        if (isset(request()->group_delete))
+        {
+         User::destroy(request()->group_delete);
+         \Session::flash('successful-delete-group', 'Users group has been deleted successful!');
+         return redirect()->back();
+        }
+        else
+        {
+            if (isset(request()->id))
+            {
+            $user = User::find($request->id);
+            $name = $user->name;
+            $user->delete();
+            \Session::flash('successful-delete', 'User ' . $name . ' has been deleted successful!');
+            return redirect('/php_and_mysql');
+            }
+        }
     }
 
     public function truncate()
@@ -71,7 +82,7 @@ class DatabaseController extends Controller
             ]
         );
         \Session::flash('successful-update', 'User ' . request()->name . ' has been updated successful!');
-        return redirect()->back();
+        return redirect('/php_and_mysql');
 
     }
 }

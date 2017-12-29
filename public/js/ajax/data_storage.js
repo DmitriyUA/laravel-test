@@ -26,7 +26,15 @@ $(document).ready(function() {
                 data: {'name': name, 'surname': surname, 'age': age},
                 success: function (data) {
                     alert(data.msg);
-                    console.log(data.input);
+                    $('#ajax-data table tbody').append(
+                        "<tr>\n" +
+                        "<th scope='row'>" + data.users[i].id + "</th>\n" +
+                        "<td>" + data.users[i].name + "</td>\n" +
+                        "<td>" + data.users[i].surname + "</td>\n" +
+                        "<td>" + data.users[i].age + "</td>\n" +
+                        "<td>" + data.users[i].created_at + "</td>\n" +
+                        "</tr>"
+                    );
                 },
                 error: function () {
                     alert('error');

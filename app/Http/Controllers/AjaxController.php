@@ -24,7 +24,8 @@ class AjaxController extends Controller
             'surname' => request('surname'),
             'age' => request('age')
         ]);
-        return response()->json(['msg' => 'User has been created successful'], 200);
+        $users = User::all();
+        return response()->json(['msg' => 'User has been created successful', 'users' => $users], 200);
 
     }
 }

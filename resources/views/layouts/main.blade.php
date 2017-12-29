@@ -63,6 +63,7 @@
 <script src="{{asset('js/ajax/load_data.js')}}"></script>
 <script src="{{asset('js/ajax/confirm_delete.js')}}"></script>
 <script src="{{asset('js/ajax/data_storage.js')}}"></script>
+<script src="{{asset('js/delete_group.js')}}"></script>
 
 
 </body>

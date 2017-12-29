@@ -15,9 +15,6 @@ $(document).ready(function() {
             var name = $("input[name=name]").val();
             var surname = $("input[name=surname]").val();
             var age = $("input[name=age]").val();
-            console.log(name);
-            console.log(surname);
-            console.log(age);
 
             $.ajax({
                 type: 'POST',
@@ -26,6 +23,8 @@ $(document).ready(function() {
                 data: {'name': name, 'surname': surname, 'age': age},
                 success: function (data) {
                     alert(data.msg);
+                    $('#ajax-data table tbody').empty();
+                    for (var i = 0; i < data.users.length; i++) {
                     $('#ajax-data table tbody').append(
                         "<tr>\n" +
                         "<th scope='row'>" + data.users[i].id + "</th>\n" +
@@ -34,7 +33,7 @@ $(document).ready(function() {
                         "<td>" + data.users[i].age + "</td>\n" +
                         "<td>" + data.users[i].created_at + "</td>\n" +
                         "</tr>"
-                    );
+                    )};
                 },
                 error: function () {
                     alert('error');

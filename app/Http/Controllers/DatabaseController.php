@@ -17,6 +17,7 @@ class DatabaseController extends Controller
     public function load_init_data()
     {
         Artisan::call('db:seed');
+        \Session::put(['loaded', 1]);
         return redirect()->back();
     }
 

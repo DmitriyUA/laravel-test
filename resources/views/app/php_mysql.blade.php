@@ -38,10 +38,12 @@
                 </p>
 
                 <!--Form for loading test data-->
-                <form method="GET" action="/load_init_data">
-                    {{csrf_field()}}
-                    <button type="submit" class="btn btn-warning btn-lg btn-block">Load</button>
-                </form>
+                @if(Session::has('loaded'))
+                    <form method="GET" action="/load_init_data">
+                        {{csrf_field()}}
+                        <button type="submit" class="btn btn-warning btn-lg btn-block">Load</button>
+                    </form>
+                @endif
                 </br>
 
                 <!--Form for adding new user to database-->

@@ -21,7 +21,7 @@
                         </tbody>
                     </table>
                 </div>
-                <button id="load-data" class="btn btn-primary">Get data</button>
+                <button id="get-data" class="btn btn-primary">Get data</button>
 
                 <h3 class="text-center"><i>Data storage to database via ajax query</i></h3>
                 <hr>

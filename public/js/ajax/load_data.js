@@ -2,7 +2,7 @@ $(document).ready(function() {
 
     var click = 0;
 
-    $('#load-data').click(function(){
+    $('#get-data').click(function(){
         $.ajaxSetup({
 
             headers: {

@@ -61,7 +61,11 @@
 <script src="{{asset('js/header.js')}}"></script>
 <script src="{{asset('js/clock.js')}}"></script>
 <script src="{{asset('js/ajax/load_data.js')}}"></script>
+<<<<<<< HEAD
 <script src="{{asset('js/ajax/confirm_delete.js')}}"></script>
+=======
+<script src="{{asset('js/ajax/data_storage.js')}}"></script>
+>>>>>>> f76587e2cd382681eda7152a9473dc52a03c7843
 
 
 </body>

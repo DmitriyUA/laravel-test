@@ -1,6 +1,9 @@
 @extends('layouts.main')
 
 @section('content')
+    <div id="preload" class="preload">
+        <img src='/images/load.gif'>
+    </div>
     <div class="container content">
         <div class="row justify-content-center">
             <div class="col-md-10 ajax-container">

@@ -84,32 +84,6 @@
                     <button type="submit" class="btn btn-light btn-send">Add User</button>
                 </form>
 
-                <script>
-                    if($('div').is('#successful-update'))
-                    {
-                        $('#successful-update').slideUp(3000, function () {
-                            
-                        });
-                    }
-                    if($('div').is('#successful-delete'))
-                    {
-                        $('#successful-delete').slideUp(3000, function () {
-
-                        });
-                    }
-                    if($('div').is('#successful-addition'))
-                    {
-                        $('#successful-addition').slideUp(3000, function () {
-
-                        });
-                    }
-                    if($('div').is('#successful-truncate'))
-                    {
-                        $('#successful-truncate').slideUp(3000, function () {
-
-                        });
-                    }
-                </script>
                 <!-- Users -->
                 @if($users->count() > 0)
                     <hr>

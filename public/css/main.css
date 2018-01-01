@@ -368,3 +368,11 @@ form
 {
   line-height: 1.5;
 }
+
+.preload
+{
+  position: absolute;
+  top: 50%;
+  left: calc(50% - 100px);
+  display: none;
+}

@@ -12,7 +12,7 @@ class AjaxController extends Controller
     {
         if (isset(request()->query_to_db))
         {
-            $users = DB::select(request()->query_to_db);
+            $users = User::paginate(10);
         }
         return response()->json(['users' => $users], 200);
     }

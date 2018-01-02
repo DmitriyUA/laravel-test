@@ -7,29 +7,18 @@ $(document).ready(function() {
         $('body').css('opacity', 0.5);
         $('#preload').css('display', 'block');
         //$('#ajax-data table tbody').append('<img src=\'/images/load.gif\'>');
-        $.ajaxSetup({
-
-            headers: {
-
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-
-            }
-
-        });
 
         $.ajax({
             type: 'POST',
+            dataType: 'json',
             url: '/load_data',
-        }).done(function (data) {
-            $('body').css('opacity', 1);
-            $('#preload').css('display', 'none');
-            console.log(data);
-            $('#ajax-data').html(data);
-        }).fail(function (data) {
-            $('body').css('opacity', '1');
-            $('#preload').css('display', 'none');
-            alert('error');
-            console.log(data);
+            success: function(data){
+                console.log(data);
+            },
+            error: function(data){
+                console.log(data);
+            }
+
         });
         });
     
@@ -37,11 +26,14 @@ $(document).ready(function() {
         e.preventDefault();
 
         var url = $(this).attr('href');
-
+        $('body').css('opacity', 0.5);
+        $('#preload').css('display', 'block');
         $.ajax({
             url : url,
-            type: 'POST',
+            method: 'POST',
         }).done(function (data) {
+            $('body').css('opacity', 1);
+            $('#preload').css('display', 'none');
             $('#ajax-data').html(data);
         }).fail(function () {
             alert('Articles could not be loaded.');

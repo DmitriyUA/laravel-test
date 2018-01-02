@@ -13,6 +13,8 @@ use Illuminate\Pagination\Paginator;
 
 class DatabaseController extends Controller
 {
+
+    //Create new User
     public function index(ValidateUsers $request)
     {
         if (request()->has(['name', 'surname', 'age'])) {
@@ -30,6 +32,7 @@ class DatabaseController extends Controller
         ]);
     }
 
+    //Loading init Data
     public function load_init_data()
     {
         Artisan::call('db:seed');
@@ -37,6 +40,7 @@ class DatabaseController extends Controller
         return redirect()->back();
     }
 
+    //Remove user(s)
     public function delete_user(Request $request)
     {
         if (isset(request()->group_delete))
@@ -49,15 +53,17 @@ class DatabaseController extends Controller
         {
             if (isset(request()->id))
             {
-            $user = User::find($request->id);
-            $name = $user->name;
-            $user->delete();
-            \Session::flash('successful-delete', 'User "' . $name . '" has been deleted successful!');
-            return redirect('/php_and_mysql');
+                $id = $request->id;
+                $user = User::find($id);
+                $name = $user->name;
+                $user->delete();
+                \Session::flash('successful-delete', 'User "' . $name . '" has been deleted successful!');
+                return redirect('/php_and_mysql');
             }
         }
     }
 
+    //Clearing the table
     public function truncate()
     {
         DB::table('users')->truncate();
@@ -66,6 +72,7 @@ class DatabaseController extends Controller
         return redirect('/php_and_mysql');
     }
 
+    //Edit user
     public function edit_user()
     {
         $user = User::find(request()->id);
@@ -74,9 +81,11 @@ class DatabaseController extends Controller
         ]);
     }
 
+
     public function update_user()
     {
-        User::find(request()->id)->update(
+        $id = request()->id;
+        User::find($id)->update(
             [
                 'name' => request('name'),
                 'surname' => request('surname'),

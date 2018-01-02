@@ -35,25 +35,29 @@
                     </div>
                 @endif
 
-            <!--Hide button "load" if it`s has been pressed-->
+                <h5 class="info-text">
+                    You can add records to database manually using the form below(click <b>Create user</b>) or load testing data
+                    by clicking button "Loading of test data"! Test data is loaded via Seed class. The table fields such as
+                    "Name", "Surname" are filled with data from the corresponding arrays in random order.
+                    Field "Age" - integer random number in the range 18 and 99.
+                </h5>
+
+                <!--Hide button "load" if it`s has been pressed-->
                 @if(!Session::has('loaded'))
-                        <h5 class="info-text">
-                                You can add records to database manually using the form below or load testing data
-                            by clicking button "Load"! Test data is loaded via Seed class. The table fields such as
-                            "Name", "Surname" are filled with data from the corresponding arrays in random order.
-                            Field "Age" - integer random number in the range 18 and 99.
-                        </h5>
 
                     <!--Form for loading test data-->
                     </br>
                     <form method="GET" action="/load_init_data">
                         {{csrf_field()}}
-                        <button type="submit" class="btn btn-warning btn-lg btn-block">Load</button>
+                        <button type="submit" class="btn btn-warning btn-lg btn-block">Loading of test data</button>
                     </form>
                     </br>
                 @endif
 
-            <!--Errors-->
+                <!--Create user-->
+                    <button type="button" class="btn btn-primary" id="create-user">Create user</button>
+
+                <!--Errors-->
                 @if ($errors->any())
                     <div class="alert alert-danger">
                         <ul>
@@ -65,20 +69,20 @@
                 @endif
 
                 <!--Form for adding new user to database-->
-                <form method="POST" action="/php_and_mysql">
+                <form method="POST" action="/php_and_mysql" id="new-user">
                     {{csrf_field()}}
                     <div class="form-group">
-                        <label for="imass" class="text-label">Name</label>
+                        <label class="text-label">Name</label>
                         <input type="text" class="form-control input-field" name="name" required>
                     </div>
 
                     <div class="form-group">
-                        <label for="imass" class="text-label">Surname</label>
+                        <label class="text-label">Surname</label>
                         <input type="text" class="form-control input-field" name="surname" required>
                     </div>
 
                     <div class="form-group">
-                        <label for="imass" class="text-label">Age</label>
+                        <label class="text-label">Age</label>
                         <input type="text" class="form-control input-field" name="age">
                     </div>
                     <button type="submit" class="btn btn-light btn-send">Add User</button>
@@ -87,9 +91,18 @@
                 <!-- Users -->
                 @if($users->count() > 0)
                     <hr>
+
+                    <h5 class="info-text">
+                        You can perform some simple actions on records in the database such as <b><i>delete</i></b>, <b><i>edit</i></b>
+                        and <b><i>group deletation</i></b>. Also if you wish, you can clear table completely by clicking <b><i>Clear table</i></b>
+                    </h5>
+
+                    <hr>
+
                     <form action = "{{route('delete_user')}}" method = "post">
                         {{ csrf_field() }}
                         {{method_field('DELETE')}}
+
                     <table class="table table-striped">
                         <thead>
                         <tr>
@@ -131,8 +144,21 @@
                         @endforeach
                         </tbody>
                     </table>
-                    <button type="submit" id="delete" class="btn btn-danger">Delete</button>
-                    <button type="button" id="select-all" class="btn btn-default">Select All</button>
+                    <div class="row justify-content-end group-actions">
+                        <!--Group deletion(Select All)-->
+                        <button type="button" id="select-all" class="btn btn-default">Select All</button>
+
+                        <!--Group deletion(Button)-->
+                        <button type="submit" id="delete" class="btn btn-danger">Delete selected group</button>
+                    </div>
+
+                    <div class="row justify-content-end group-actions">
+                        <!--Clear table(truncate)-->
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#confirm-truncate">Clear table</button>
+                    </div>
+                    <!--Pagination -->
+                        {{$users->links()}}
+
                     </form>
 
                     <!--Modal window for confirmation of removal record from table -->
@@ -165,8 +191,7 @@
                             <h6>At this screen resolution <i>Actions</i> field isn`t available.</h6>
                         </div>
                     </div>
-                    {{$users->links()}}
-                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#confirm-truncate">Clear table</button>
+
 
                     <!--Modal window for confirmation of truncate table -->
                     <div class="modal fade" id="confirm-truncate" tabindex="-1" role="dialog" aria-labelledby="confirm-truncate-Label" aria-hidden="true">

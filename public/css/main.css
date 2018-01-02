@@ -122,10 +122,42 @@ text-label-php
   text-align: center;
 }
 
+.form-group .text-label
+{
+  line-height: 1.2;
+}
+
+.form-group .col-sm-1
+{
+  padding-right: 0;
+}
+
+.form-group .age
+{
+  max-width: 6%;
+}
+
+.name-surname
+{
+  max-width: 10% !important;
+}
+.date-reg
+{
+  max-width: 18% !important;
+}
+
 .input-field:focus
 {
   border-color: #006363;
   box-shadow: 0 0 0 .2rem #009999;
+}
+
+input[type="date"]:before {
+  content: attr(placeholder) !important;
+}
+input[type="date"]:focus:before,
+input[type="date"]:valid:before {
+  content: "";
 }
 
 .btn
@@ -374,5 +406,19 @@ form
   position: absolute;
   top: 50%;
   left: calc(50% - 100px);
+  display: none;
+}
+
+.group-actions button
+{
+  margin: 5px;
+}
+
+#new-user
+{
+  display: none;
+}
+#new-user-ajax
+{
   display: none;
 }

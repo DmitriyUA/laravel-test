@@ -10,26 +10,16 @@
                 <h3 class="text-center"><i>Get data from database via ajax query</i></h3>
                 <hr>
                 <div id="ajax-data" class="col-md-10">
-                    <table class="table table-striped">
-                        <thead>
-                        <tr>
-                            <th scope="col">Id</th>
-                            <th>Name</th>
-                            <th>Surname</th>
-                            <th>Age</th>
-                            <th>Date of register</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
                 </div>
                 <button id="get-data" class="btn btn-primary">Get data</button>
 
                 <h3 class="text-center"><i>Data storage to database via ajax query</i></h3>
                 <hr>
+                <button type="button" class="btn btn-primary" id="create-user-ajax">Create user</button>
                 <div id="ajax-data" class="col-md-10">
-                    <form>
+                    <!--Create user-->
+
+                    <form id="new-user-ajax">
                         {{csrf_field()}}
                         <div class="form-group">
                             <label for="imass" class="text-label">Name</label>

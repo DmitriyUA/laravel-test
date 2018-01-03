@@ -5,15 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Routing\UrlGenerator;
 
-class ArrayController extends Controller
+class PhpController extends Controller
 {
-    public function index(Request $request)
+    public function arr(Request $request)
     {
-        $input_string = $request->imass;
-        if(isset($input_string))
+        $input_arr = $request->imass;
+        if(isset($input_arr))
         {
             //Converting to array
-            $convert_to_mass = preg_split("/[\s,.]+/", $input_string);
+            $convert_to_mass = preg_split("/[\s,.]+/", $input_arr);
             $array_sort = $convert_to_mass;
             $arr_shuffle = $convert_to_mass;
 
@@ -36,7 +36,7 @@ class ArrayController extends Controller
             $arr_flip = array_flip($convert_to_mass);
         }
         return view('app.php', [
-            'input_string' => $input_string,
+            'input_arr' => $input_arr,
             'convert_to_mass' => $convert_to_mass,
             'array_sort' => $array_sort,
             'rev_arr_sort' => $rev_arr_sort,
@@ -44,6 +44,18 @@ class ArrayController extends Controller
             'first_elem' => $first_elem,
             'last_elem' => $last_elem,
             'arr_flip' => $arr_flip
+        ]);
+    }
+
+    public function str()
+    {
+        if (isset(request()->string))
+        {
+            $in_str = str_replace(" ", "", request()->string);
+        }
+
+        return view('app.php', [
+            'in_str' => $in_str,
         ]);
     }
 }

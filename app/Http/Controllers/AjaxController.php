@@ -10,12 +10,7 @@ class AjaxController extends Controller
 {
     public function load_data()
     {
-        //$users = User::paginate(10);
-        //return view('app.ajax-paginate', ['users' => $users])->render();
-        //return response()->json(['users' => ''], 200);
-
-        if (request()->ajax())
-        {
+        if (request()->ajax()) {
             $users = User::paginate(10);
             return view('app.ajax-paginate', ['users' => $users])->render();
             //return response()->json(['users' => $users], 200);
@@ -29,7 +24,6 @@ class AjaxController extends Controller
             'surname' => request('surname'),
             'age' => request('age')
         ]);
-        $users = User::paginate(10);
-        return response()->json(['msg' => 'User has been created successful', 'users' => $users], 200);
+        return response()->json(['msg' => 'User has been created successful'], 200);
     }
 }

@@ -9,9 +9,9 @@ $(document).ready(function() {
         //$('#ajax-data table tbody').append('<img src=\'/images/load.gif\'>');
 
         $.ajax({
-            type: 'POST',
-            url: '/load_data'
-            }).done(function (data) {
+            method: 'POST',
+            url: '/load_data',
+        }).done(function (data) {
             $('body').css('opacity', 1);
             $('#preload').css('display', 'none');
             console.log(data);
@@ -31,8 +31,9 @@ $(document).ready(function() {
         $('body').css('opacity', 0.5);
         $('#preload').css('display', 'block');
         $.ajax({
-            url : url,
             method: 'POST',
+            url : url,
+
         }).done(function (data) {
             $('body').css('opacity', 1);
             $('#preload').css('display', 'none');

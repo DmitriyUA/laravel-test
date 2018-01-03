@@ -302,6 +302,11 @@ input[type="date"]:valid:before {
   outline: none;
 }
 
+a:visited
+{
+  outline: none;
+}
+
 .actions-post {
   float: left;
   padding: 0 5px;

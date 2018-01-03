@@ -10,15 +10,17 @@ $(document).ready(function() {
 
         $.ajax({
             type: 'POST',
-            dataType: 'json',
-            url: '/load_data',
-            success: function(data){
-                console.log(data);
-            },
-            error: function(data){
-                console.log(data);
-            }
-
+            url: '/load_data'
+            }).done(function (data) {
+            $('body').css('opacity', 1);
+            $('#preload').css('display', 'none');
+            console.log(data);
+            $('#ajax-data').html(data);
+        }).fail(function (data) {
+            $('body').css('opacity', '1');
+            $('#preload').css('display', 'none');
+            alert('error');
+            console.log(data);
         });
         });
     

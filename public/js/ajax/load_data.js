@@ -18,7 +18,7 @@ $(document).ready(function() {
         });
 
         $.ajax({
-            type: 'POST',
+            method: 'POST',
             url: '/load_data',
         }).done(function (data) {
             $('body').css('opacity', 1);
@@ -39,8 +39,8 @@ $(document).ready(function() {
         var url = $(this).attr('href');
 
         $.ajax({
+            method: 'POST',
             url : url,
-            type: 'POST',
         }).done(function (data) {
             $('#ajax-data').html(data);
         }).fail(function () {

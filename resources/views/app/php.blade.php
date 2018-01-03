@@ -9,7 +9,7 @@
                 @if (!isset($input_arr) && !isset($in_str))
 
                     <!--Input for Array-->
-                    <form method="POST" action="/php">
+                    <form method="POST" action="{{route('array_controller')}}">
                         {{csrf_field()}}
                         <div class="form-group form-group-php">
                             <label for="imass" class="text-label text-label-php">
@@ -125,17 +125,41 @@
                         <h3 class="text-center">Combine array elements <b><i>Array shuffling</i></b> in a string</h3>
                     <div class="alert alert-light">
                         <span class="sf-dump-note">{{gettype(implode($arr_shuffle))}}:{{count(implode($arr_shuffle))}}</span></br>
-                        <span class="sf-dump-str">"{{implode($arr_shuffle)}}"</span>
+                        <pre class="conv-to-mass">"<span class="sf-dump-str">{{implode($arr_shuffle)}}</span>"</pre>
                     </div>
                 @endif
 
+
+
                 <!--For String-->
                 @if(isset($in_str))
-                    <!-- The last element of array -->
-                        <h3 class="text-center">Enter string without spaces</h3>
-                        <div class="alert alert-light">
-                            <pre class="conv-to-mass">"<span class="sf-dump-index">{{$in_str}}</span>"</pre>
-                        </div>
+                    <!-- String without spaces -->
+                    <h3 class="text-center">Enter string without spaces</h3>
+                    <div class="alert alert-light">
+                        <pre class="conv-to-mass">"<span class="sf-dump-index">{{$in_str}}</span>"</pre>
+                    </div>
+
+                    <!-- String reverse -->
+                    <h3 class="text-center">String reverse</h3>
+                    <div class="alert alert-light">
+                        <pre class="conv-to-mass">"<span class="sf-dump-index">{{strrev($in_str)}}</span>"</pre>
+                    </div>
+
+                    <!-- Number of characters repeats -->
+                    <h3 class="text-center">Number of characters repeats</h3>
+                    <div class="alert alert-light">
+                        <span class="sf-dump-note">{{gettype(count_chars($in_str, 1))}}:{{count(count_chars($in_str, 1))}} [</span></br>
+                        @foreach(count_chars($in_str, 1) as $key => $value)
+                            <pre class="conv-to-mass"><span class="sf-dump-index">   {{chr($key)}}</span> repeated <span class="sf-dump-str">{{$value}}</span> times</pre>
+                        @endforeach
+                        <span class="sf-dump-note">]</span>
+                    </div>
+
+                    <!-- Split a string into fragments -->
+                    <h3 class="text-center">Split a string into fragments(3 characters on fragment)</h3>
+                    <div class="alert alert-light">
+                        <pre><span class="sf-dump-str">{{chunk_split($in_str, 3)}}</span></pre>
+                    </div>
                 @endif
             </div>
         </div>

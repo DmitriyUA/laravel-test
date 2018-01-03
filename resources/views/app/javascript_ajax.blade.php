@@ -8,7 +8,10 @@
         <div class="row justify-content-center">
             <div class="col-md-10 ajax-container">
                 <h3 class="text-center"><i>Get data from database via ajax</i></h3>
-                <h5>Clicking by button <i><b>Get data</b></i> will be sent ajax query to database for retrieving all records</h5>
+                <h5>
+                    Clicking by button <i><b>Get data</b></i> will be sent ajax query to database for
+                    retrieving all records with pagination.
+                </h5>
                 <hr>
                 <div id="ajax-data" class="col-md-10">
                 </div>

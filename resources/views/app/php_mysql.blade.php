@@ -88,6 +88,8 @@
                     <button type="submit" class="btn btn-light btn-send">Add User</button>
                 </form>
 
+
+
                 <!-- Users -->
                 @if($users->count() > 0)
                     <hr>
@@ -98,6 +100,19 @@
                     </h5>
 
                     <hr>
+
+                    <!-- Users -->
+                    <div class="container">
+                        <div class="row">
+                            <div class="col align-self-end">
+                                <form class="form-inline my-2 my-lg-0" method="post" action="{{route('search')}}">
+                                    {{csrf_field()}}
+                                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search" value="@if (isset($query)){{$query}}@endif">
+                                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
 
                     <form action = "{{route('delete_user')}}" method = "post">
                         {{ csrf_field() }}

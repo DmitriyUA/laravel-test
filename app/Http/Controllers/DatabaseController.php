@@ -96,4 +96,16 @@ class DatabaseController extends Controller
         return redirect('/php_and_mysql');
 
     }
+
+    public function search()
+    {
+        $users = User::where('name', 'like', '%' . request()->search . '%')
+            ->orWhere('surname', 'like', '%' . request()->search . '%')
+            ->orWhere('age', 'like', '%' . request()->search . '%')
+            ->paginate(10);
+        return view('app.php_mysql', [
+            'users' => $users,
+            'query' => request()->search
+        ]);
+    }
 }

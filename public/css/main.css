@@ -439,3 +439,18 @@ form
   font-style: italic;
   border-radius: 5px;
 }
+
+#prompt-delete, #prompt-edit
+{
+  display: none;
+  position: fixed;
+  width: auto;
+  height: 30px;
+  background-color: #F4A460;
+  border-radius: 5px;
+  text-align: center;
+  padding: 3px 20px;
+  color: white;
+  font-style: italic;
+  z-index: 9999999;
+}

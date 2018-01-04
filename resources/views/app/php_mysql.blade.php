@@ -121,6 +121,7 @@
                                         <i class="fa fa-times fa-lg" aria-hidden="true"></i>
                                     </button>
 
+
                                     <span class="fa-stack fa-lg">
                                         <a href = "{{route('edit_user', ['id' => $user->id])}}" class="edit-user">
                                            <i class="fa fa-circle fa-stack-2x"></i>
@@ -212,4 +213,6 @@
             </div>
         </div>
     </div>
+    <div id="prompt-delete">Delete</div>
+    <div id="prompt-edit">Edit</div>
 @endsection

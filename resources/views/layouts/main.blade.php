@@ -70,6 +70,7 @@
 <script src="{{asset('js/ajax/data_storage.js')}}"></script>
 <script src="{{asset('js/delete_group.js')}}"></script>
 <script src="{{asset('js/successful-actions.js')}}"></script>
+<script src="{{asset('js/prompt.js')}}"></script>
 
 
 </body>

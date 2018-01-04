@@ -7,33 +7,7 @@
                 <h3><i>This is example of interaction with database via Eloquent ORM</i></h3>
                 <hr>
 
-                <!--Successful User update-->
-                @if(Session::has('successful-update'))
-                    <div id="successful-update" class="alert alert-success">
-                        <h5 class="text-center">{{Session::get('successful-update')}}</h5>
-                    </div>
-                @endif
-
-                <!--Successful User delete-->
-                @if(Session::has('successful-delete'))
-                    <div id="successful-delete" class="alert alert-danger">
-                        <h5 class="text-center">{{Session::get('successful-delete')}}</h5>
-                    </div>
-                @endif
-
-                <!--Successful User addition-->
-                @if(Session::has('successful-addition'))
-                    <div id="successful-addition" class="alert alert-success">
-                        <h5 class="text-center">{{Session::get('successful-addition')}}</h5>
-                    </div>
-                @endif
-
-                <!--Successful clearing a table-->
-                @if(Session::has('successful-truncate'))
-                    <div id="successful-truncate" class="alert alert-danger">
-                        <h5 class="text-center">{{Session::get('successful-truncate')}}</h5>
-                    </div>
-                @endif
+                @include('layouts.main-parts.successful_actions')
 
                 <h5 class="info-text">
                     You can add records to database manually using the form below(click <b>Create user</b>) or load testing data
@@ -42,12 +16,12 @@
                     Field "Age" - integer random number in the range 18 and 99.
                 </h5>
 
-                <!--Hide button "load" if it`s has been pressed-->
-                @if(!Session::has('loaded'))
+                <!--Hide button "load" if table has no less than 1 record-->
+                @if(count($users) < 1)
 
                     <!--Form for loading test data-->
                     </br>
-                    <form method="GET" action="/load_init_data">
+                    <form method="GET" action="{{route('init_data')}}">
                         {{csrf_field()}}
                         <button type="submit" class="btn btn-warning btn-lg btn-block">Loading of test data</button>
                     </form>
@@ -101,14 +75,14 @@
 
                     <hr>
 
-                    <!-- Users -->
+                    <!-- Searching users -->
                     <div class="container">
                         <div class="row">
                             <div class="col align-self-end">
-                                <form class="form-inline my-2 my-lg-0" method="post" action="{{route('search')}}">
+                                <form class="form-inline my-2 my-lg-0 search" method="post" action="{{route('search')}}">
                                     {{csrf_field()}}
-                                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search" value="@if (isset($query)){{$query}}@endif">
-                                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                                    <input class="form-control mr-sm-2" id="search" type="search" placeholder="Search" aria-label="Search" name="search" value="@if (isset($query)){{$query}}@endif">
+                                    <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
                                 </form>
                             </div>
                         </div>

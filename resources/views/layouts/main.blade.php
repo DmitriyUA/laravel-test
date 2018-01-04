@@ -63,6 +63,9 @@
 @if(Route::currentRouteName() == 'javascript_ajax')
     <script src="{{asset('js/ajax/load_data.js')}}"></script>
 @endif
+@if(Session::has('found'))
+    <script src="{{asset('js/search.js')}}"></script>
+@endif
 <script src="{{asset('js/ajax/confirm_delete.js')}}"></script>
 <script src="{{asset('js/ajax/data_storage.js')}}"></script>
 <script src="{{asset('js/delete_group.js')}}"></script>

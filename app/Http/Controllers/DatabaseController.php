@@ -36,7 +36,7 @@ class DatabaseController extends Controller
     public function load_init_data()
     {
         Artisan::call('db:seed');
-        \Session::put('loaded', 1);
+        \Session::flash('successful-load', 'Test data was loaded successfully!!!');
         return redirect()->back();
     }
 
@@ -103,6 +103,8 @@ class DatabaseController extends Controller
             ->orWhere('surname', 'like', '%' . request()->search . '%')
             ->orWhere('age', 'like', '%' . request()->search . '%')
             ->paginate(10);
+        $users->appends(['search' => request()->search])->links();
+        \Session::flash('found', '1');
         return view('app.php_mysql', [
             'users' => $users,
             'query' => request()->search

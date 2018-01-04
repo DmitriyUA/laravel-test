@@ -28,8 +28,10 @@ Route::delete('/php_and_mysql/delete', 'DatabaseController@delete_user')->name('
 Route::delete('/php_and_mysql/truncate', 'DatabaseController@truncate')->name('truncate');
 Route::get('/php_and_mysql/edit/{id}', 'DatabaseController@edit_user')->name('edit_user');
 Route::put('/php_and_mysql/edit/{id}', 'DatabaseController@update_user')->name('update_user');
-Route::post('/search', 'DatabaseController@search')->name('search');
-Route::get('/load_init_data', 'DatabaseController@load_init_data');
+Route::post('/php_and_mysql/search', 'DatabaseController@search')->name('search');
+Route::get('/php_and_mysql/search', 'DatabaseController@search');
+
+Route::get('/load_init_data', 'DatabaseController@load_init_data')->name('init_data');
 
 Route::post('load_data', 'AjaxController@load_data');
 Route::post('create_ajax', 'AjaxController@create_ajax');

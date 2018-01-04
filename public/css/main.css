@@ -332,11 +332,6 @@ a:visited
   margin: 0 auto;
 }
 
-.btn-success {
-  background-color: #008B8B !important;
-  border-color: #008B8B !important;
-}
-
 .main-menu
 {
   font-size: 1.3rem;
@@ -426,4 +421,21 @@ form
 #new-user-ajax
 {
   display: none;
+}
+
+.table
+{
+  text-align: center;
+}
+.table th, td
+{
+  vertical-align: middle !important;
+}
+
+.found
+{
+  color: #E0FFFF;
+  font-weight: bold;
+  font-style: italic;
+  border-radius: 5px;
 }

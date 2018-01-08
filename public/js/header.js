@@ -3,14 +3,17 @@ $(document).ready(function(){
     $('.main-menu li a').each(function () {
 
         var url = window.location.href;
-        var current_url = this.href;
-        if(current_url == url )
+        var current_url = (this.href).split('//')[1];
+        //alert(current_url);
+        if(url.indexOf(current_url) != -1)
         {
             $(this).addClass('active');
         }
     });
 
     var click = 0;
+
+
     $('#create-user').click(function (e) {
         e.preventDefault();
 

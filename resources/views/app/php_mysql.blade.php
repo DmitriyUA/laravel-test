@@ -4,16 +4,13 @@
     <div class="container content">
         <div class="row justify-content-center">
             <div class="col-md-8 eloquent-orm">
-                <h3><i>This is example of interaction with database via Eloquent ORM</i></h3>
+                <h3><i>@lang('content.mysql_title')</i></h3>
                 <hr>
 
                 @include('layouts.main-parts.successful_actions')
 
                 <h5 class="info-text">
-                    You can add records to database manually using the form below(click <b>Create user</b>) or load testing data
-                    by clicking button "Loading of test data"! Test data is loaded via Seed class. The table fields such as
-                    "Name", "Surname" are filled with data from the corresponding arrays in random order.
-                    Field "Age" - integer random number in the range 18 and 99.
+                    @lang('content.mti_1')
                 </h5>
 
                 <!--Hide button "load" if table has no less than 1 record-->
@@ -43,7 +40,7 @@
                 @endif
 
                 <!--Form for adding new user to database-->
-                <form method="POST" action="/php_and_mysql" id="new-user">
+                <form method="POST" action="/mysql" id="new-user">
                     {{csrf_field()}}
                     <div class="form-group">
                         <label class="text-label">Name</label>

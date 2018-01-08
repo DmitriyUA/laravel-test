@@ -47,7 +47,7 @@ class DatabaseController extends Controller
         {
          User::destroy(request()->group_delete);
          \Session::flash('successful-delete-group', 'Users group has been deleted successful!');
-         return redirect('/php_and_mysql');
+         return redirect()->route('php_mysql');
         }
         else
         {
@@ -58,7 +58,7 @@ class DatabaseController extends Controller
                 $name = $user->name;
                 $user->delete();
                 \Session::flash('successful-delete', 'User "' . $name . '" has been deleted successful!');
-                return redirect('/php_and_mysql');
+                return redirect()->route('php_mysql');
             }
         }
     }
@@ -69,7 +69,7 @@ class DatabaseController extends Controller
         DB::table('users')->truncate();
         \Session::forget('loaded');
         \Session::flash('successful-truncate', 'All records have been successfully deleted!');
-        return redirect('/php_and_mysql');
+        return redirect()->route('php_mysql');
     }
 
     //Edit user
@@ -93,21 +93,26 @@ class DatabaseController extends Controller
             ]
         );
         \Session::flash('successful-update', 'User "' . request()->name . '" has been updated successful!');
-        return redirect('/php_and_mysql');
+        return redirect()->route('php_mysql');
 
     }
 
     public function search()
     {
-        $users = User::where('name', 'like', '%' . request()->search . '%')
-            ->orWhere('surname', 'like', '%' . request()->search . '%')
-            ->orWhere('age', 'like', '%' . request()->search . '%')
-            ->paginate(10);
-        $users->appends(['search' => request()->search])->links();
-        \Session::flash('found', '1');
-        return view('app.php_mysql', [
-            'users' => $users,
-            'query' => request()->search
-        ]);
+		if(isset(request()->search))
+		{
+			$users = User::where('name', 'like', '%' . request()->search . '%')
+				->orWhere('surname', 'like', '%' . request()->search . '%')
+				->orWhere('age', 'like', '%' . request()->search . '%')
+				->paginate(10);
+			$users->appends(['search' => request()->search])->links();
+			\Session::flash('found', '1');
+			return view('app.php_mysql', [
+				'users' => $users,
+				'query' => request()->search
+        ]);	
+		}
+		else
+			return redirect()->back();
     }
 }

@@ -12,6 +12,8 @@
 
     <title>My modest skills</title>
 
+	<link rel="icon" href="{{asset('/images/favicon.ico')}}">
+	
     <!-- Custom styles for this template -->
     <link href="{{asset('/css/main.css')}}" rel="stylesheet">
 

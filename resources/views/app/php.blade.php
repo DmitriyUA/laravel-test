@@ -4,7 +4,7 @@
     <div class="container content">
         <div class="row justify-content-center">
             <div class="col-md-10">
-                <h5 class="text-right text-white">Server time {{date("H:i:s")}}</h5>
+                <h5 class="text-right text-white">@lang('content.ser_time') {{date("H:i:s")}}</h5>
                 </br>
                 @if (!isset($input_arr) && !isset($in_str))
 

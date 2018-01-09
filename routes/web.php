@@ -22,10 +22,9 @@ Route::get('/ajax', 'RouteController@javascript_ajax')->name('javascript_ajax');
 Route::post('/php/array', 'PhpController@arr')->name('array_controller');
 Route::post('/php/string', 'PhpController@str')->name('string_controller');
 
-
 Route::post('/mysql', 'DatabaseController@index')->name('database_controller');
 Route::delete('/mysql/delete', 'DatabaseController@delete_user')->name('delete_user');
-Route::delete('//truncate', 'DatabaseController@truncate')->name('truncate');
+Route::delete('/truncate', 'DatabaseController@truncate')->name('truncate');
 Route::get('/mysql/edit/{id}', 'DatabaseController@edit_user')->name('edit_user');
 Route::put('/mysql/edit/{id}', 'DatabaseController@update_user')->name('update_user');
 Route::post('/mysql/search', 'DatabaseController@search')->name('search');

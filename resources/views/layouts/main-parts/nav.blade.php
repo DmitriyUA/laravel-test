@@ -3,7 +3,7 @@
     <div class="container">
 
             <a class="navbar-brand" href="/"><img src="{{asset('images/brand.png')}}"></a>
-            <a class="" href="{{route('locale')}}">
+            <a href="{{route('locale')}}">
                 <img class="language" src="{{asset('images/' . App::getLocale() . '.png')}}">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">

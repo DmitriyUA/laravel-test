@@ -10,7 +10,7 @@
     <meta name="csrf-token" content="{{csrf_token()}}">
 
 
-    <title>My modest skills</title>
+    <title>@lang('content.title')</title>
 
 	<link rel="icon" href="{{asset('/images/favicon.ico')}}">
 	
@@ -67,6 +67,9 @@
 @endif
 @if(Session::has('found'))
     <script src="{{asset('js/search.js')}}"></script>
+@endif
+@if(Route::currentRouteName() == 'file')
+    <script src="{{asset('js/file.js')}}"></script>
 @endif
 <script src="{{asset('js/ajax/confirm_delete.js')}}"></script>
 <script src="{{asset('js/ajax/data_storage.js')}}"></script>

@@ -8,7 +8,7 @@ use App\User;
 
 class AjaxController extends Controller
 {
-    public function load_data()
+    public function loadData()
     {
         if (request()->ajax()) {
             $users = User::paginate(10);
@@ -17,13 +17,13 @@ class AjaxController extends Controller
         }
     }
 
-    public function create_ajax()
+    public function createAjax()
     {
         User::create([
             'name' => request('name'),
             'surname' => request('surname'),
             'age' => request('age')
         ]);
-        return response()->json(['msg' => 'User has been created successful'], 200);
+        return response()->json(['msg' => __('content.User has been added successful!')], 200);
     }
 }

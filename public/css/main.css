@@ -418,7 +418,7 @@ form
 {
   display: none;
 }
-#new-user-ajax
+#new-user-ajax, #edit-file-content
 {
   display: none;
 }
@@ -454,4 +454,9 @@ form
   color: white;
   font-style: italic;
   z-index: 9999999;
+}
+
+#create-user
+{
+  margin-bottom: 15px;
 }

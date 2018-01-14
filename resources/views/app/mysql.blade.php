@@ -77,7 +77,7 @@
                             <div class="col align-self-end">
                                 <form class="form-inline my-2 my-lg-0 search" method="post" action="{{route('search')}}">
                                     {{csrf_field()}}
-                                    <input class="form-control mr-sm-2" id="search" type="search" placeholder="Search" aria-label="Search" name="search" value="@if (isset($query)){{$query}}@endif">
+                                    <input class="form-control mr-sm-2" id="search" type="search" placeholder=@lang('content.search') aria-label="Search" name="search" value="@if (isset($query)){{$query}}@endif">
                                     <button class="btn btn-success my-2 my-sm-0" type="submit">@lang('content.search')</button>
                                 </form>
                             </div>
@@ -184,17 +184,17 @@
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-body">
-                                    <h4 class="text-center">This action will delete all records from table and reset the auto-incrementing ID to zero.
-                                        Do you want to continue anyway?
+                                    <h4 class="text-center">
+                                        @lang('content.mti_3')
                                     </h4>
                                 </div>
                                 <div class="modal-footer confirm-deletetion">
-                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal">@lang('content.close')</button>
                                     <form action = "{{route('truncate')}}" method = "post" class = "actions-post">
                                         {{ csrf_field() }}
                                         {{method_field('DELETE')}}
 
-                                        <button type="submit" class="btn btn-light btn-outline-danger">Clear table</button>
+                                        <button type="submit" class="btn btn-light btn-outline-danger">@lang('content.clr_tbl')</button>
                                     </form>
                                 </div>
                             </div>

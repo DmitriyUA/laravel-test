@@ -23,30 +23,32 @@ class DatabaseController extends Controller
                 'surname' => request('surname'),
                 'age' => request('age')
             ]);
-            \Session::flash('successful-addition', 'User "' . request('name') . '" has been added successful!');
+            \Session::flash(
+                'successful-addition',
+                __('content.User')
+                . ' "'
+                . request('name')
+                . '" '
+                .__('content.has been added successful!')
+            );
         }
 
         $users = User::paginate(10);
-        return view('app.php_mysql', [
+        return view('app.mysql', [
             'users' => $users
         ]);
     }
 
-    //Loading init Data
-    public function load_init_data()
-    {
-        Artisan::call('db:seed');
-        \Session::flash('successful-load', 'Test data was loaded successfully!!!');
-        return redirect()->back();
-    }
-
     //Remove user(s)
-    public function delete_user(Request $request)
+    public function deleteUser(Request $request)
     {
         if (isset(request()->group_delete))
         {
          User::destroy(request()->group_delete);
-         \Session::flash('successful-delete-group', 'Users group has been deleted successful!');
+         \Session::flash(
+             'successful-delete-group',
+             __('content.Users group has been deleted successful!')
+         );
          return redirect()->route('php_mysql');
         }
         else
@@ -57,7 +59,14 @@ class DatabaseController extends Controller
                 $user = User::find($id);
                 $name = $user->name;
                 $user->delete();
-                \Session::flash('successful-delete', 'User "' . $name . '" has been deleted successful!');
+                \Session::flash(
+                    'successful-delete',
+                    __('content.User')
+                    . ' "'
+                    . $name
+                    . '" '
+                    . __('content.has been deleted successful!')
+                );
                 return redirect()->route('php_mysql');
             }
         }
@@ -68,12 +77,15 @@ class DatabaseController extends Controller
     {
         DB::table('users')->truncate();
         \Session::forget('loaded');
-        \Session::flash('successful-truncate', 'All records have been successfully deleted!');
+        \Session::flash(
+            'successful-truncate',
+            __('content.All records have been successfully deleted!')
+        );
         return redirect()->route('php_mysql');
     }
 
     //Edit user
-    public function edit_user()
+    public function editUser()
     {
         $user = User::find(request()->id);
         return view('app.edit_user', [
@@ -82,7 +94,7 @@ class DatabaseController extends Controller
     }
 
 
-    public function update_user()
+    public function updateUser()
     {
         $id = request()->id;
         User::find($id)->update(
@@ -92,7 +104,14 @@ class DatabaseController extends Controller
                 'age' => request('age')
             ]
         );
-        \Session::flash('successful-update', 'User "' . request()->name . '" has been updated successful!');
+        \Session::flash(
+            'successful-update',
+            __('content.User')
+            . ' "'
+            . request()->name
+            . '" '
+            . __('content.has been updated successful!')
+        );
         return redirect()->route('php_mysql');
 
     }
@@ -106,8 +125,11 @@ class DatabaseController extends Controller
 				->orWhere('age', 'like', '%' . request()->search . '%')
 				->paginate(10);
 			$users->appends(['search' => request()->search])->links();
-			\Session::flash('found', '1');
-			return view('app.php_mysql', [
+			\Session::flash(
+			    'found',
+                '1'
+            );
+			return view('app.mysql', [
 				'users' => $users,
 				'query' => request()->search
         ]);	
@@ -115,4 +137,16 @@ class DatabaseController extends Controller
 		else
 			return redirect()->back();
     }
+
+    //Loading test Data
+    public function loadInitData()
+    {
+        Artisan::call('db:seed');
+        \Session::flash(
+            'successful-load',
+            __('content.test data was loaded successfully!!!')
+        );
+        return redirect()->back();
+    }
+
 }

@@ -12,6 +12,13 @@
     </div>
 @endif
 
+<!--Successful Users group delete-->
+@if(Session::has('successful-delete-group'))
+    <div id="successful-delete-group" class="alert alert-danger">
+        <h5 class="text-center">{{Session::get('successful-delete-group')}}</h5>
+    </div>
+@endif
+
 <!--Successful User addition-->
 @if(Session::has('successful-addition'))
     <div id="successful-addition" class="alert alert-success">

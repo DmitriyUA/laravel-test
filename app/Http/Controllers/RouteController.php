@@ -13,17 +13,33 @@ class RouteController extends Controller
         return view('app.php');
     }
 
-    public function php_mysql()
+    public function mysql()
     {
         $users = User::paginate(10);
 
-        return view('app.php_mysql', [
+        return view('app.mysql', [
             'users' => $users
         ]);
     }
 
-    public function javascript_ajax()
+    public function ajax()
     {
-        return view('app.javascript_ajax');
+        return view('app.ajax');
+    }
+
+    public function file()
+    {
+        $file_content = file('/OSPanel/domains/skills/public/test.txt');
+        $repl_cont = '';
+        $cont = '';
+        $i = 0;
+        foreach($file_content as $str) {
+            $i++;
+            $cont .= $str;
+            $repl_cont .= '>> '. str_replace("\r\n", "<br>", $str);
+        }
+
+
+        return view('app.file', ['file_cont' => $cont, 'repl_cont' => $repl_cont]);
     }
 }

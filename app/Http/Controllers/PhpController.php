@@ -47,15 +47,4 @@ class PhpController extends Controller
         ]);
     }
 
-    public function str()
-    {
-        if (isset(request()->string))
-        {
-            $in_str = str_replace(" ", "", request()->string);
-        }
-
-        return view('app.php', [
-            'in_str' => $in_str,
-        ]);
-    }
 }

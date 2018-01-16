@@ -29,7 +29,7 @@ class RouteController extends Controller
 
     public function file()
     {
-        $file_content = file('/OSPanel/domains/skills/public/test.txt');
+        $file_content = file('/OSPanel/domains/skills/public/files/test.txt');
         $repl_cont = '';
         $cont = '';
         $i = 0;
@@ -38,8 +38,10 @@ class RouteController extends Controller
             $cont .= $str;
             $repl_cont .= '>> '. str_replace("\r\n", "<br>", $str);
         }
+        $files = scandir('/OSPanel/domains/skills/public/files/');
+        unset($files[0]);
+        unset($files[1]);
 
-
-        return view('app.file', ['file_cont' => $cont, 'repl_cont' => $repl_cont]);
+        return view('app.file', ['file_cont' => $cont, 'repl_cont' => $repl_cont, 'files' => $files]);
     }
 }

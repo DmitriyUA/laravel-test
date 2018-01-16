@@ -2,10 +2,10 @@
         <thead>
         <tr>
             <th scope="col">Id</th>
-            <th>@lang('content.name')</th>
-            <th>@lang('content.surname')</th>
-            <th>@lang('content.age')</th>
-            <th>@lang('content.doreg')</th>
+            <th>@lang('content.Name')</th>
+            <th>@lang('content.Surname')</th>
+            <th>@lang('content.Age')</th>
+            <th>@lang('content.Date of register')</th>
         </tr>
         </thead>
         <tbody class="ajax-table">

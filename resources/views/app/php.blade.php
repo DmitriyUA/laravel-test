@@ -4,7 +4,7 @@
     <div class="container content">
         <div class="row justify-content-center">
             <div class="col-md-10">
-                <h5 class="text-right text-white">@lang('content.ser_time') {{date("H:i:s")}}</h5>
+                <h5 class="text-right text-white">@lang('content.Server time') {{date("H:i:s")}}</h5>
                 </br>
                 @if (!isset($input_arr) && !isset($in_str))
 
@@ -24,7 +24,7 @@
                                 <hr>
                                 <input type="text" class="form-control input-field" name="imass" id="imass" required>
                             </div>
-                            <button type="submit" class="btn btn-light btn-send">@lang('content.p_array')</button>
+                            <button type="submit" class="btn btn-light btn-send">@lang('content.Array')</button>
                         </form>
 
 
@@ -33,13 +33,13 @@
                 <!--For Array-->
                 @if (isset($input_arr))
                     <!-- Entered data -->
-                        <h3 class="text-center">@lang('content.en_data')</h3>
+                        <h3 class="text-center">@lang('content.Entered data')</h3>
                         <div class="entered-data alert alert-info">
                             <span>" </span>{{$input_arr}}<span> "</span>
                         </div>
 
                         <!-- Convertion to an array -->
-                        <h3 class="text-center">@lang('content.ct_arr')</h3>
+                        <h3 class="text-center">@lang('content.Convertion to an array')</h3>
                         <div class="alert alert-light">
                             <span class="sf-dump-note">{{gettype($convert_to_mass)}}:{{count($convert_to_mass)}} [</span></br>
                             @foreach($convert_to_mass as $key => $value)
@@ -49,7 +49,7 @@
                         </div>
 
                         <!-- Array sorting -->
-                        <h3 class="text-center">@lang('content.arr_sort')</h3>
+                        <h3 class="text-center">@lang('content.Array sorting')</h3>
                         <div class="alert alert-light">
                             <span class="sf-dump-note">{{gettype($array_sort)}}:{{count($array_sort)}} [</span></br>
                             @foreach($array_sort as $key => $value)
@@ -59,7 +59,7 @@
                         </div>
 
                         <!-- Reverse array sorting -->
-                        <h3 class="text-center">@lang('content.rarr_sort')</h3>
+                        <h3 class="text-center">@lang('content.Reverse array sorting')</h3>
                         <div class="alert alert-light">
                             <span class="sf-dump-note">{{gettype($rev_arr_sort)}}:{{count($rev_arr_sort)}} [</span></br>
                             @foreach($rev_arr_sort as $key => $value)
@@ -69,7 +69,7 @@
                         </div>
 
                         <!-- Array shuffling -->
-                        <h3 class="text-center">@lang('content.arr_shuf')</h3>
+                        <h3 class="text-center">@lang('content.Array shuffling')</h3>
                         <div class="alert alert-light">
                             <span class="sf-dump-note">{{gettype($arr_shuffle)}}:{{count($arr_shuffle)}} [</span></br>
                             @foreach($arr_shuffle as $key => $value)
@@ -79,21 +79,21 @@
                         </div>
 
                         <!-- The first element of array -->
-                        <h3 class="text-center">@lang('content.f_elem')</h3>
+                        <h3 class="text-center">@lang('content.The first element of array')</h3>
                         <div class="alert alert-light">
                             <span class="sf-dump-note">first:</span></br>
                             <pre class="conv-to-mass">"<span class="sf-dump-str">{{$first_elem}}</span>"</pre>
                         </div>
 
                         <!-- The last element of array -->
-                        <h3 class="text-center">@lang('content.l_elem')</h3>
+                        <h3 class="text-center">@lang('content.The last element of array')</h3>
                         <div class="alert alert-light">
                             <span class="sf-dump-note">last:</span></br>
                             <pre class="conv-to-mass">"<span class="sf-dump-str">{{$last_elem}}</span>"</pre>
                         </div>
 
                         <!-- Swap the keys and values -->
-                        <h3 class="text-center">@lang('content.swap')</h3>
+                        <h3 class="text-center">@lang('content.Swap the keys and values')</h3>
                         <div class="alert alert-light">
                             <span class="sf-dump-note">{{gettype($arr_flip)}}:{{count($arr_flip)}} [</span></br>
                             @foreach($arr_flip as $key => $value)
@@ -103,7 +103,7 @@
                         </div>
 
                         <!-- Implode mass to string -->
-                        <h3 class="text-center">@lang('content.combine')</h3>
+                        <h3 class="text-center">@lang('content.Combine array elements Array shuffling in a string')</h3>
                         <div class="alert alert-light">
                             <span class="sf-dump-note">{{gettype(implode($arr_shuffle))}}:{{count(implode($arr_shuffle))}}</span></br>
                             <pre class="conv-to-mass">"<span class="sf-dump-str">{{implode($arr_shuffle)}}</span>"</pre>
@@ -113,7 +113,7 @@
                 <h4 class="info-text">
                     @lang('content.pti_3')
                 </h4>
-                <a href="{{route('file')}}" class="btn btn-light btn-send">@lang('content.edfile')</a>
+                <a href="{{route('file')}}" class="btn btn-light btn-send">@lang('content.Actions with files')</a>
 
             </div>
         </div>

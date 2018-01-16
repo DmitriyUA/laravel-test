@@ -4,7 +4,7 @@
     <div class="container content">
         <div class="row justify-content-center">
             <div class="col-md-8 eloquent-orm">
-                <h3><i>@lang('content.mysql_title')</i></h3>
+                <h3><i>@lang('content.This is example of interaction with database via Eloquent ORM')</i></h3>
                 <hr>
 
                 @include('layouts.main-parts.successful_actions')
@@ -20,13 +20,13 @@
                     </br>
                     <form method="GET" action="{{route('init_data')}}">
                         {{csrf_field()}}
-                        <button type="submit" class="btn btn-warning btn-lg btn-block">@lang('content.ltdata')</button>
+                        <button type="submit" class="btn btn-warning btn-lg btn-block">@lang('content.Loading of test data')</button>
                     </form>
                     </br>
                 @endif
 
                 <!--Create user-->
-                    <button type="button" class="btn btn-primary" id="create-user">@lang('content.cr_usr')</button>
+                    <button type="button" class="btn btn-primary" id="create-user">@lang('content.Create user')</button>
 
                 <!--Errors-->
                 @if ($errors->any())
@@ -43,20 +43,20 @@
                 <form method="POST" action="/mysql" id="new-user">
                     {{csrf_field()}}
                     <div class="form-group">
-                        <label class="text-label">@lang('content.name')</label>
+                        <label class="text-label">@lang('content.Name')</label>
                         <input type="text" class="form-control input-field" name="name" required>
                     </div>
 
                     <div class="form-group">
-                        <label class="text-label">@lang('content.surname')</label>
+                        <label class="text-label">@lang('content.Surname')</label>
                         <input type="text" class="form-control input-field" name="surname" required>
                     </div>
 
                     <div class="form-group">
-                        <label class="text-label">@lang('content.age')</label>
+                        <label class="text-label">@lang('content.Age')</label>
                         <input type="text" class="form-control input-field" name="age">
                     </div>
-                    <button type="submit" class="btn btn-light btn-send">@lang('content.add_usr')</button>
+                    <button type="submit" class="btn btn-light btn-send">@lang('content.Add User')</button>
                 </form>
 
 
@@ -77,8 +77,8 @@
                             <div class="col align-self-end">
                                 <form class="form-inline my-2 my-lg-0 search" method="post" action="{{route('search')}}">
                                     {{csrf_field()}}
-                                    <input class="form-control mr-sm-2" id="search" type="search" placeholder=@lang('content.search') aria-label="Search" name="search" value="@if (isset($query)){{$query}}@endif">
-                                    <button class="btn btn-success my-2 my-sm-0" type="submit">@lang('content.search')</button>
+                                    <input class="form-control mr-sm-2" id="search" type="search" placeholder=@lang('content.Search') aria-label="Search" name="search" value="@if (isset($query)){{$query}}@endif">
+                                    <button class="btn btn-success my-2 my-sm-0" type="submit">@lang('content.Search')</button>
                                 </form>
                             </div>
                         </div>
@@ -92,11 +92,11 @@
                         <thead>
                         <tr>
                             <th scope="col">Id</th>
-                            <th scope="col">@lang('content.name')</th>
-                            <th scope="col">@lang('content.surname')</th>
-                            <th scope="col">@lang('content.age')</th>
-                            <th scope="col">@lang('content.doreg')</th>
-                            <th scope="col" class = "actions">@lang('content.actions')</th>
+                            <th scope="col">@lang('content.Name')</th>
+                            <th scope="col">@lang('content.Surname')</th>
+                            <th scope="col">@lang('content.Age')</th>
+                            <th scope="col">@lang('content.Date of register')</th>
+                            <th scope="col" class = "actions">@lang('content.Actions')</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -132,15 +132,15 @@
                     </table>
                     <div class="row justify-content-end group-actions">
                         <!--Group deletion(Select All)-->
-                        <button type="button" id="select-all" class="btn btn-default">@lang('content.sel_all')</button>
+                        <button type="button" id="select-all" class="btn btn-default">@lang('content.Select All')</button>
 
                         <!--Group deletion(Button)-->
-                        <button type="submit" id="delete" class="btn btn-danger">@lang('content.del_sel_gr')</button>
+                        <button type="submit" id="delete" class="btn btn-danger">@lang('content.Delete selected records')</button>
                     </div>
 
                     <div class="row justify-content-end group-actions">
                         <!--Clear table(truncate)-->
-                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#confirm-truncate">@lang('content.clr_tbl')</button>
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#confirm-truncate">@lang('content.Clear table')</button>
                     </div>
                     <!--Pagination -->
                         {{$users->links()}}
@@ -152,17 +152,17 @@
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-body">
-                                    <h3 class="text-center">@lang('content.confirm_del')</h3>
+                                    <h3 class="text-center">@lang('content.Are you sure?')</h3>
                                 </div>
                                 <div class="modal-footer confirm-deletetion">
-                                    <button type="button" class="btn btn-primary" data-dismiss="modal">@lang('content.close')</button>
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal">@lang('content.Close')</button>
                                     <form action = "{{route('delete_user')}}" method = "post" class = "actions-post">
                                         {{ csrf_field() }}
                                         {{method_field('DELETE')}}
 
                                         <button id="send-id" name="id" type="submit" class="btn btn-danger btn-xs">
                                             <span>
-                                                <b>@lang('content.del_rec')</b>
+                                                <b>@lang('content.Delete record')</b>
                                             </span>
                                         </button>
                                     </form>
@@ -185,16 +185,16 @@
                             <div class="modal-content">
                                 <div class="modal-body">
                                     <h4 class="text-center">
-                                        @lang('content.mti_3')
+                                        @lang('content.This action will delete all records from table and reset the auto-incrementing ID to zero. Do you want to continue anyway?')
                                     </h4>
                                 </div>
                                 <div class="modal-footer confirm-deletetion">
-                                    <button type="button" class="btn btn-primary" data-dismiss="modal">@lang('content.close')</button>
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal">@lang('content.Close')</button>
                                     <form action = "{{route('truncate')}}" method = "post" class = "actions-post">
                                         {{ csrf_field() }}
                                         {{method_field('DELETE')}}
 
-                                        <button type="submit" class="btn btn-light btn-outline-danger">@lang('content.clr_tbl')</button>
+                                        <button type="submit" class="btn btn-light btn-outline-danger">@lang('content.Clear table')</button>
                                     </form>
                                 </div>
                             </div>

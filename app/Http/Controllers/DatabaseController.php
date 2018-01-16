@@ -144,7 +144,7 @@ class DatabaseController extends Controller
         Artisan::call('db:seed');
         \Session::flash(
             'successful-load',
-            __('content.test data was loaded successfully!!!')
+            __('content.Test data was loaded successfully!!!')
         );
         return redirect()->back();
     }

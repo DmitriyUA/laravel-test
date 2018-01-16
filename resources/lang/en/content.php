@@ -8,6 +8,10 @@
 
 return
     [
+        //Main
+        'text-info' => 'This is a training "project" for learning framework Laravel capabilities. Here implemented interaction
+                with database via ORM and ajax on a simple examples (pseudo-users) also work with files. There is an opportunity of
+                selection language (english and russian). Project code is available by the adress',
         'title' => 'Laravel trainig',
 
         //PHP

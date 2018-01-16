@@ -14,11 +14,9 @@
                 <li class="slide"><img src = "{{asset("images/7.png")}}" class="slide-img"></li>
             </ul>
         </div>
-        <div class="container col-md-9">
+        <div class="container col-md-9 text-info-main">
             <h5 class="info-text">
-                Это тренировочный проект для изучения возможностей фреймворка Laravel. Здесь реализовано взаимодействие
-                с базой данных посредством ORM и ajax на простых примерах (псевдопользователи) а также работа с файлами.
-                Также присутствует выбор языков (английский и русский). Код проекта находится по адресу <>
+                @lang('content.text-info')<a href="https://github.com/DmitriyUA/laravel-test.git"> https://github.com/DmitriyUA/laravel-test.git</a>
             </h5>
         </div>
     </div>

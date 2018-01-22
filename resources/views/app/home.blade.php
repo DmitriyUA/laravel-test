@@ -16,7 +16,7 @@
         </div>
         <div class="container col-md-9 text-info-main">
             <h5 class="info-text">
-                @lang('content.text-info')<a href="https://github.com/DmitriyUA/laravel-test.git"> https://github.com/DmitriyUA/laravel-test.git</a>
+                @lang('content.text-info')<a href="https://github.com/dmitriyokhrimenko/laravel-test.git"> https://github.com/dmitriyokhrimenko/laravel-test.git</a>
             </h5>
         </div>
     </div>

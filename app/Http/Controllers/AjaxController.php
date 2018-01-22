@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\App;
 use App\User;
 
 class AjaxController extends Controller
@@ -24,6 +25,6 @@ class AjaxController extends Controller
             'surname' => request('surname'),
             'age' => request('age')
         ]);
-        return response()->json(['msg' => __('content.User has been added successful!')], 200);
+        return response()->json(['msg' => 'User has been added successful!'], 200);
     }
 }

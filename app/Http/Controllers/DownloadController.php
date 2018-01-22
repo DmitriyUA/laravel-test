@@ -8,6 +8,6 @@ class DownloadController extends Controller
 {
     public function index()
     {
-        return response()->download('/OSPanel/domains/skills/public/files/'.request()->path, request()->path);
+        return response()->download($_SERVER['DOCUMENT_ROOT'].'/files/'.request()->path, request()->path);
     }
 }

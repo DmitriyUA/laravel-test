@@ -29,16 +29,16 @@ class RouteController extends Controller
 
     public function file()
     {
-        $file_content = file('/OSPanel/domains/skills/public/files/test.txt');
+        $file_content = file($_SERVER['DOCUMENT_ROOT'].'/files/test.txt');
         $repl_cont = '';
         $cont = '';
         $i = 0;
         foreach($file_content as $str) {
             $i++;
             $cont .= $str;
-            $repl_cont .= '>> '. str_replace("\r\n", "<br>", $str);
+            $repl_cont .= '>> '. str_replace("\n", "<br>", $str);
         }
-        $files = scandir('/OSPanel/domains/skills/public/files/');
+        $files = scandir($_SERVER['DOCUMENT_ROOT'].'/files/');
         unset($files[0]);
         unset($files[1]);
 

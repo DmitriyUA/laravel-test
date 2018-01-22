@@ -1,6 +1,8 @@
 $(document).ready(function ()
 {
+    var url = window.location.pathname.split('/');
     var count_select = 0;
+    var select_one = 0;
     var fall = true;
     $('#delete').click(function (e) {
 
@@ -9,46 +11,46 @@ $(document).ready(function ()
             {
                 fall = false;
             }
-            else
-            console.log();
-
-            //console.log('Prop Checked '+$(this).prop("checked"));
         });
-        //$('#delete').click(function (e) {
-        //    if(!($('.delete-group').prop("checked")))
-        //    {
-//
-        //        alert('Please select one or more records');
-        //        e.preventDefault();
-        //    }
         if(fall == true)
         {
-            alert('Please select one or more records');
+            if(url[1] == 'en')
+            {
+                var please_select_records = 'Please select one or more records';
+            }
+            else var please_select_records = 'Выберите пожалуйста одну или более записей';
+            alert(please_select_records);
             e.preventDefault();
         }
         else
         {
-            if(!confirm('Delete selected records?'))
+            if(url[1] == 'en')
+            {
+                var delete_select_records = 'Delete selected records?';
+            }
+            else var delete_select_records = 'Удалить выбранные записи?';
+
+            if(!confirm(delete_select_records))
             {
                 e.preventDefault();
-                $('.delete-group').removeAttr('checked');
+                $('.delete-group').prop('checked', false);
                 fall = true;
                 count_select = 0;
             }
         }
-        console.log('FALL variable '+fall);
-        });
+    });
 
     $('#select-all').click(function () {
         if(count_select == 0)
         {
-            $('.delete-group').attr('checked', 'checked');
+            $('.delete-group').prop('checked', true);
             count_select = 1;
         }
         else if (count_select == 1)
         {
-            $('.delete-group').removeAttr('checked');
+            $('.delete-group').prop('checked', false);
             count_select = 0;
         }
     });
+    console.log(url);
 });
